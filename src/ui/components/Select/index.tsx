@@ -12,7 +12,7 @@ interface Props {
   options: SelectOption[],
 }
 
-export const Header = ({
+export const SelectComponent = ({
   defaultValue,
   instructionOption,
   options = [],
@@ -45,4 +45,4 @@ export const Header = ({
   )
 };
 
-export default Header;
+export default SelectComponent;
