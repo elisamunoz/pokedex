@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
 import Select from "../ui/components/Select";
-import Tag from "../ui/components/Tag"
+import Tag from "../ui/components/TagList"
 import { StyledBody } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
@@ -40,8 +40,6 @@ const IndexPage: React.FC<PageProps> = () => {
     setCurrentPokemonDetails({
       ...pokemonDetails
     })
-
-    console.log(selectedValue)
   }
 
   return (
@@ -59,7 +57,16 @@ const IndexPage: React.FC<PageProps> = () => {
       <img style={styles.size} src={currentPokemonDetails.imageUrl} />  
       <p>{currentPokemonDetails.description}</p>
       <p>{currentPokemonDetails.url}</p>
-      <Tag text="Psychic" />
+
+      {/* {currentPokemonDetails.type?.map((pokemonType, index) => (
+        <Tag key={index} text={pokemonType} test={currentPokemonDetails.number % 2 === 0}/>
+      ))
+      } */}
+
+    <Tag types={currentPokemonDetails.type} />
+          
+
+
     </StyledBody>
   )
 }

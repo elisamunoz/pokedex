@@ -1,3 +1,5 @@
+import { POKEMON_TYPES } from "../constants";
+
 export type PokemonType = {
   name: string;
   url: string;
@@ -11,7 +13,7 @@ export type pokemonStat = {
 }
 
 export interface PokemonDetailsType extends PokemonType {
-  type?: string[];
+  type?: POKEMON_TYPES[];
   height?: number;
   weight?: number;
   moves?: Array<string>
@@ -34,7 +36,7 @@ export type pokemonAbilityAPI = {
 export type pokemonTypeAPI = {
   slot: number;
   type: {
-    name: string;
+    name: POKEMON_TYPES;
     url: string;  
   };
 }

@@ -15,22 +15,6 @@ export const getPokemonList = async (): Promise<PokemonType[]>=> {
   })})
 } 
 
-export const getPokemonInformation = async(index: number): Promise<pokemonAPI> => {
-  return await fetch(`https://pokeapi.co/api/v2/pokemon/${index}/`)
-    .then((res) => res.json());
-}
-
-export const getPokemonDescription = async(index: number): Promise<string> => {
-  const description = await fetch(
-  `https://pokeapi.co/api/v2/pokemon-species/${index}`
-  ).then((res) => res.json());
-
-  return description.flavor_text_entries[0].flavor_text.replace(/[\n\f]/g, " ");
-}
-
-const getPokemonByNumber = (pokemonNumber: number, pokemonList: PokemonType[]): PokemonType =>
- pokemonList.find(pok => pok.number === pokemonNumber) as PokemonType;
-
 export const getPokemonDetails = async(pokemonNumber: number, pokemonList: PokemonType[]): Promise<PokemonDetailsType> => {
   const pokemon = getPokemonByNumber(pokemonNumber, pokemonList);
 
@@ -59,5 +43,22 @@ export const getPokemonDetails = async(pokemonNumber: number, pokemonList: Pokem
     stats,  
   }
 }
+
+ const getPokemonInformation = async(index: number): Promise<pokemonAPI> => {
+  return await fetch(`https://pokeapi.co/api/v2/pokemon/${index}/`)
+    .then((res) => res.json());
+}
+
+const getPokemonDescription = async(index: number): Promise<string> => {
+  const description = await fetch(
+  `https://pokeapi.co/api/v2/pokemon-species/${index}`
+  ).then((res) => res.json());
+
+  return description.flavor_text_entries[0].flavor_text.replace(/[\n\f]/g, " ");
+}
+
+const getPokemonByNumber = (pokemonNumber: number, pokemonList: PokemonType[]): PokemonType =>
+ pokemonList.find(pok => pok.number === pokemonNumber) as PokemonType;
+
 
 
