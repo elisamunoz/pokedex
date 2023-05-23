@@ -22,7 +22,7 @@ export const SelectComponent = ({
   const handleOnChange: React.ChangeEventHandler<HTMLSelectElement> = event => {
     const newValue = Number(event.target?.value);
 
-    onChange(newValue) //?????
+    onChange(newValue) // pasa el evento para arriba
   }
 
   return (

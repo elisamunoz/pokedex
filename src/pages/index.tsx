@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
+import About from "../ui/layout/About";
 import Select from "../ui/components/Select";
-import Tag from "../ui/components/TagList"
+import Tag from "../ui/components/TagList";
 import { StyledBody } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
@@ -42,6 +43,8 @@ const IndexPage: React.FC<PageProps> = () => {
     })
   }
 
+  const [ mainType ] = currentPokemonDetails?.type || [];
+
   return (
     <StyledBody>
       <Select 
@@ -53,20 +56,19 @@ const IndexPage: React.FC<PageProps> = () => {
           label: pokemon.name,
         }))}
       />
+      <About
+        mainType={mainType}
+        weight={currentPokemonDetails.weight} 
+        height={currentPokemonDetails.height} 
+        moves={currentPokemonDetails.moves}
+      />
+
       <h1>{currentPokemonDetails.name}</h1>
       <img style={styles.size} src={currentPokemonDetails.imageUrl} />  
       <p>{currentPokemonDetails.description}</p>
       <p>{currentPokemonDetails.url}</p>
 
-      {/* {currentPokemonDetails.type?.map((pokemonType, index) => (
-        <Tag key={index} text={pokemonType} test={currentPokemonDetails.number % 2 === 0}/>
-      ))
-      } */}
-
-    <Tag types={currentPokemonDetails.type} />
-          
-
-
+      <Tag types={currentPokemonDetails.type} />
     </StyledBody>
   )
 }

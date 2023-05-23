@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 import { POKEMON_TYPES, POKEMON_TYPE_COLORS } from '../../../constants';
-import '../../../styles/global.css';
 
 interface TagProps {
   type?: POKEMON_TYPES;
 }
-
-
 
 export const Wrapper = styled.ul`
   display: flex;
@@ -35,7 +32,7 @@ export const Tag = styled.li<TagProps>`
 
 export const Text = styled.h4`
   align-self: center;
-  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
   font-weight: 700;
   line-height: 16px;
   color: #FFFFFF;
