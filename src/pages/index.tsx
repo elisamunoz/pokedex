@@ -7,6 +7,7 @@ import Tag from "../ui/components/TagList";
 import { StyledBody } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
+import { useFetchPokemons } from "../state/hooks/pokemon";
 
 const styles = {
   size: {
@@ -15,8 +16,8 @@ const styles = {
   }
 }
 
-
 const IndexPage: React.FC<PageProps> = () => {
+  useFetchPokemons();
   const [pokemonList, setPokemonList] = useState<PokemonType[]>([])
   const [currentPokemonDetails, setCurrentPokemonDetails] = useState<PokemonDetailsType>({
     name: "",
@@ -27,7 +28,8 @@ const IndexPage: React.FC<PageProps> = () => {
 
   useEffect(() => {
     const fetchPokemons = async() => {
-      const pokemons = await getPokemonList()
+      const pokemons = await getPokemonList();
+
       setPokemonList(pokemons);
     }
     fetchPokemons()  
