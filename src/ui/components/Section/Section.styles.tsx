@@ -6,9 +6,12 @@ interface TitleProps {
 }
 
 export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
   text-align: center;
   height: 100%;
-  width: 100%;
+  max-width: 95%;
+  margin: auto;
 `;
 
 export const Title = styled.h4<TitleProps>`

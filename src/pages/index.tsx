@@ -41,6 +41,7 @@ const IndexPage: React.FC<PageProps> = () => {
     setCurrentPokemonDetails({
       ...pokemonDetails
     })
+    console.log(currentPokemonDetails.description)
   }
 
   const [ mainType ] = currentPokemonDetails?.type || [];
@@ -61,12 +62,11 @@ const IndexPage: React.FC<PageProps> = () => {
         weight={currentPokemonDetails.weight} 
         height={currentPokemonDetails.height} 
         moves={currentPokemonDetails.moves}
+        description={currentPokemonDetails.description}
       />
 
       <h1>{currentPokemonDetails.name}</h1>
-      <img style={styles.size} src={currentPokemonDetails.imageUrl} />  
-      <p>{currentPokemonDetails.description}</p>
-      <p>{currentPokemonDetails.url}</p>
+      <img style={styles.size} src={currentPokemonDetails.imageUrl} />
 
       <Tag types={currentPokemonDetails.type} />
     </StyledBody>

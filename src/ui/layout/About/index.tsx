@@ -1,7 +1,8 @@
 import React from "react";
 import Section from "../../components/Section";
 import MeasureComponent from "../../components/Measure";
-import { ContentWrapper } from "./About.styles"
+import Text from "../../components/Text"
+import { ContentWrapper, MeasureWrapper, DescriptionWrapper } from "./About.styles"
 import { POKEMON_TYPES } from '../../../constants';
 
 export enum CONTENT_TYPES {
@@ -16,29 +17,37 @@ interface Props {
   moves?: string[];
   mainType?: POKEMON_TYPES;
   contentType?: CONTENT_TYPES;
+  description?: string;
 }
 
 export const AboutSection = ({
   weight,
   height,
   moves,
-  mainType
+  mainType,
+  description
 }: Props) => {
 
   return (
     <Section mainType={mainType} title='About'>
       <ContentWrapper>
-        <MeasureComponent 
-          content={weight}
-          contentType={CONTENT_TYPES.WEIGHT} />
-        <MeasureComponent 
-          content={height}
-          contentType={CONTENT_TYPES.HEIGHT} />
-        <MeasureComponent 
-          content={moves}
-          contentType={CONTENT_TYPES.MOVES}
-        />
-        </ContentWrapper>
+        <MeasureWrapper>
+          <MeasureComponent 
+            content={weight}
+            contentType={CONTENT_TYPES.WEIGHT} />
+          <MeasureComponent 
+            content={height}
+            contentType={CONTENT_TYPES.HEIGHT} />
+          <MeasureComponent 
+            content={moves}
+            contentType={CONTENT_TYPES.MOVES}
+          />
+        </MeasureWrapper>
+        <DescriptionWrapper>
+          <Text text={description}/>
+        </DescriptionWrapper>
+        
+      </ContentWrapper>
     </Section>
   )
 };
