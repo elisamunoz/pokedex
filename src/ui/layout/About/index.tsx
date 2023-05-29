@@ -7,7 +7,7 @@ import { POKEMON_TYPES } from '../../../constants';
 
 export enum CONTENT_TYPES {
   WEIGHT = 'weight',
-  HEIGHT =  'weight',
+  HEIGHT =  'height',
   MOVES = 'moves',
 };
 

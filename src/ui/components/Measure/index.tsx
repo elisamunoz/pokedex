@@ -12,7 +12,7 @@ const getFinalContent = (contentType: string, content: number | string[]) => {
 
   if (contentType === CONTENT_TYPES.WEIGHT) {
     return `${finalContentNumber} kg`
-  } else if (contentType === CONTENT_TYPES.WEIGHT) {
+  } else if (contentType === CONTENT_TYPES.HEIGHT) {
     return `${finalContentNumber} m`
   }
   return
