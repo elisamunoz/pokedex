@@ -1,12 +1,12 @@
 import React from "react";
 import Section from "../../components/Section";
 import TagList from "../../components/TagList";
-import About, {CONTENT_TYPES} from "../../layout/About";
+import About, {CONTENT_TYPES} from "../About";
 import BaseStats from "../BaseStats";
 import { POKEMON_TYPES } from "../../../constants";
 import { pokemonStat } from "../../../types/pokemon";
 
-import { ContentWrapper } from "./PokemonInfo.styles"
+import { ContentWrapper } from "./LowerPokemonInfo.styles"
 
 interface Props {
   types?: POKEMON_TYPES[],
@@ -18,7 +18,7 @@ interface Props {
   description?: string;
 }
 
-export const PokemonInfoSection = ({
+export const LowerPokemonInfoSection = ({
   types = [],
   statsValue,
   weight,
@@ -44,4 +44,4 @@ export const PokemonInfoSection = ({
   )
 };
 
-export default PokemonInfoSection;
+export default LowerPokemonInfoSection;

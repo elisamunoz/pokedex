@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
-import PokemonInfo from "../ui/layout/PokemonInfo";
+import LowerPokemonInfo from "../ui/layout/LowerPokemonInfo";
+import UpperPokemonInfo from "../ui/layout/UpperPokemonInfo";
 import Select from "../ui/components/Select";
 import { StyledBody } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
@@ -55,7 +56,12 @@ const IndexPage: React.FC<PageProps> = () => {
           label: pokemon.name,
         }))}
       />
-      <PokemonInfo 
+      <UpperPokemonInfo 
+        name={currentPokemonDetails.name}
+        number={currentPokemonDetails.number}
+        imageUrl={currentPokemonDetails.imageUrl}
+      />
+      <LowerPokemonInfo 
         types={currentPokemonDetails.type}
         statsValue={currentPokemonDetails.stats}
         weight={currentPokemonDetails.weight} 
@@ -63,8 +69,6 @@ const IndexPage: React.FC<PageProps> = () => {
         moves={currentPokemonDetails.moves}
         description={currentPokemonDetails.description}
       />
-      <h1>{currentPokemonDetails.name}</h1>
-      <img style={styles.size} src={currentPokemonDetails.imageUrl} />
     </StyledBody>
   )
 }

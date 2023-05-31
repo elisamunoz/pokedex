@@ -10,6 +10,7 @@ export const StyledBody = styled.main<Props>`
   flex-direction: column;
   color: #1D1D1D;
   font-family: 'Poppins', sans-serif;
+  background: currentColor;
 
   ${({ type = POKEMON_TYPES.NORMAL }) => {
     

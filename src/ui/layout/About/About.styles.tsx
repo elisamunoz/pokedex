@@ -15,6 +15,6 @@ export const MeasureWrapper = styled.div`
 `
 
 export const DescriptionWrapper = styled.div`
-  margin: 8px;
+  margin: 8px 0;
   text-align: left;
 `

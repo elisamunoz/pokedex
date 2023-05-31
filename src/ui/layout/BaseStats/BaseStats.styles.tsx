@@ -5,6 +5,5 @@ export const  ContentWrapper= styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  width: 100%;
   margin: 0.3em auto;
 `;

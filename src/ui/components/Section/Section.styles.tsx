@@ -5,12 +5,13 @@ export const Section = styled.section`
   flex-direction: column;
   text-align: center;
   height: 100%;
-  max-width: 90%;
-  margin: auto;
+  /* max-width: 90%; */
+  /* margin: auto; */
 `;
 
 export const Title = styled.h4`
   font-weight: 700;
+  margin: 0;
 `;
 
 export const Content = styled.div`
