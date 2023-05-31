@@ -3,7 +3,6 @@ import Section from "../../components/Section";
 import MeasureComponent from "../../components/Measure";
 import Text from "../../components/Text"
 import { ContentWrapper, MeasureWrapper, DescriptionWrapper } from "./About.styles"
-import { POKEMON_TYPES } from '../../../constants';
 
 export enum CONTENT_TYPES {
   WEIGHT = 'weight',

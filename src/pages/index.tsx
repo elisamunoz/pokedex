@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
-import About from "../ui/layout/About";
+import PokemonInfo from "../ui/layout/PokemonInfo";
 import Select from "../ui/components/Select";
-import Tag from "../ui/components/TagList";
-import BaseStats from "../ui/layout/BaseStats"
 import { StyledBody } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
@@ -57,20 +55,16 @@ const IndexPage: React.FC<PageProps> = () => {
           label: pokemon.name,
         }))}
       />
-      {/* <PokemonInfo /> */}
-      <About
+      <PokemonInfo 
+        types={currentPokemonDetails.type}
+        statsValue={currentPokemonDetails.stats}
         weight={currentPokemonDetails.weight} 
-        height={currentPokemonDetails.height} 
+        height={currentPokemonDetails.height}
         moves={currentPokemonDetails.moves}
         description={currentPokemonDetails.description}
       />
-      <BaseStats
-        statsValue={currentPokemonDetails.stats}
-       />
       <h1>{currentPokemonDetails.name}</h1>
       <img style={styles.size} src={currentPokemonDetails.imageUrl} />
-
-      <Tag types={currentPokemonDetails.type} />
     </StyledBody>
   )
 }
