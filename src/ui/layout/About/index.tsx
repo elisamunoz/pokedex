@@ -15,7 +15,6 @@ interface Props {
   weight?: number;
   height?: number;
   moves?: string[];
-  mainType?: POKEMON_TYPES;
   contentType?: CONTENT_TYPES;
   description?: string;
 }
@@ -24,12 +23,13 @@ export const AboutSection = ({
   weight,
   height,
   moves,
-  mainType,
   description
 }: Props) => {
 
   return (
-    <Section mainType={mainType} title='About'>
+    <Section
+      title='About'
+    >
       <ContentWrapper>
         <MeasureWrapper>
           <MeasureComponent 
