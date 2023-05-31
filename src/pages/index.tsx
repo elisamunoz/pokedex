@@ -4,6 +4,7 @@ import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
 import About from "../ui/layout/About";
 import Select from "../ui/components/Select";
 import Tag from "../ui/components/TagList";
+import BaseStats from "../ui/layout/BaseStats"
 import { StyledBody } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
@@ -41,13 +42,12 @@ const IndexPage: React.FC<PageProps> = () => {
     setCurrentPokemonDetails({
       ...pokemonDetails
     })
-    console.log(currentPokemonDetails.description)
   }
 
   const [ mainType ] = currentPokemonDetails?.type || [];
 
   return (
-    <StyledBody>
+    <StyledBody type={mainType}>
       <Select 
         onChange={onhandleSelectChange}
         defaultValue="Default Value" 
@@ -57,14 +57,16 @@ const IndexPage: React.FC<PageProps> = () => {
           label: pokemon.name,
         }))}
       />
+      {/* <PokemonInfo /> */}
       <About
-        mainType={mainType}
         weight={currentPokemonDetails.weight} 
         height={currentPokemonDetails.height} 
         moves={currentPokemonDetails.moves}
         description={currentPokemonDetails.description}
       />
-
+      <BaseStats
+        statsValue={currentPokemonDetails.stats}
+       />
       <h1>{currentPokemonDetails.name}</h1>
       <img style={styles.size} src={currentPokemonDetails.imageUrl} />
 
