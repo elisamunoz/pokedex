@@ -1,7 +1,9 @@
 import React from "react";
 import Section from "../../components/Section";
+import SvgIcon from "../../components/Svg";
 import { addZerosToStart } from "../../../functions/utils"
-import backIconImg from "../../../images/arrowBack.svg"
+import { arrowBackIcon } from "../../../images/svgPaths"
+
 
 import { ContentWrapper, BackIcon, TextWrapper, Title, Number, Image } from "./UpperPokemonInfo.styles"
 
@@ -9,7 +11,6 @@ interface Props {
   name: string;
   number: number;
   imageUrl: string;
-  // backIconImg: string;
 }
 
 export const UpperPokemonInfoSection = ({
@@ -23,8 +24,7 @@ export const UpperPokemonInfoSection = ({
     <Section>
       <ContentWrapper>
         <TextWrapper>
-          {backIconImg}
-          <BackIcon src={backIconImg} alt="back to previous screen"/>
+          <SvgIcon path={arrowBackIcon} />
           <Title>
             {name}
           </Title>
