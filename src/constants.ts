@@ -19,7 +19,9 @@ export enum POKEMON_TYPES {
   WATER = 'water'
 };
 
-export const POKEMON_TYPE_COLORS: any = {
+export const POKEMON_TYPE_COLORS: {
+  [key in POKEMON_TYPES]: string
+} = {
   [POKEMON_TYPES.NORMAL]: '#AAA67F',
   [POKEMON_TYPES.BUG]: '#A7B723',
   [POKEMON_TYPES.POISON]: '#A43E9E',
@@ -41,3 +43,29 @@ export const POKEMON_TYPE_COLORS: any = {
 };
 
 export const PRIMARY_COLOR = '#DC0A2D'
+
+export enum STAT_TYPES {
+  HP = 'HP',
+  ATK =  'ATK',
+  DEF = 'DEF',
+  SATK = 'SATK',
+  SDEF = 'SDEF',
+  SPD = 'SPD',
+};
+export const STAT_TYPES_2: { [key: string]: STAT_TYPES} = {
+  'attack': STAT_TYPES.ATK,
+  'defense': STAT_TYPES.DEF,
+  'special-attack': STAT_TYPES.SATK,
+  'special-defense': STAT_TYPES.SDEF,
+  'speed': STAT_TYPES.SPD,
+  'hp': STAT_TYPES.HP,
+}
+
+export const POKEMON_TYPE_STATS: object = {
+  [STAT_TYPES.HP]: 'HP',
+  [STAT_TYPES.ATK]: 'ATK',
+  [STAT_TYPES.DEF]: 'DEF',
+  [STAT_TYPES.SATK]: 'SATK',
+  [STAT_TYPES.SDEF]: 'SDEF',
+  [STAT_TYPES.SPD]: 'SPD',
+}
