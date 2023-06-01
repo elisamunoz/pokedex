@@ -3,7 +3,6 @@ import type { HeadFC, PageProps } from "gatsby";
 import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
 import LowerPokemonInfo from "../ui/layout/LowerPokemonInfo";
 import UpperPokemonInfo from "../ui/layout/UpperPokemonInfo";
-import Select from "../ui/components/Select";
 import { StyledBody, PokemonCard } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
