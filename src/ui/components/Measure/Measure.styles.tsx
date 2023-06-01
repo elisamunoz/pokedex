@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   text-transform: capitalize;
   flex-grow: 1;
   border-right: 1px solid #E0E0E0;
+  color: #1D1D1D;
 
   &:last-child {
     border-right: none;
