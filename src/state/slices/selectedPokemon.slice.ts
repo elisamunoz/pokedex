@@ -8,9 +8,7 @@ export const pokemonsSlice = createSlice({
   name: 'selectedPokemon',
   initialState,
   reducers: {
-    set: (state, action: PayloadAction<number>) => {
-      state = action.payload;
-    },
+    set: (_, action: PayloadAction<number>) => action.payload,
     reset: () => initialState,
   }
 })
