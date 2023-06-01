@@ -16,6 +16,8 @@ export const getPokemonList = async (): Promise<PokemonType[]>=> {
 } 
 
 export const getPokemonDetails = async(pokemonNumber: number, pokemonList: PokemonType[]): Promise<PokemonDetailsType> => {
+  if (pokemonList.length === 0) return {} as PokemonDetailsType;
+
   const pokemon = getPokemonByNumber(pokemonNumber, pokemonList);
 
   const pokemonDetails = await getPokemonInformation(pokemonNumber)
@@ -44,12 +46,12 @@ export const getPokemonDetails = async(pokemonNumber: number, pokemonList: Pokem
   }
 }
 
- const getPokemonInformation = async(index: number): Promise<pokemonAPI> => {
+export const getPokemonInformation = async(index: number): Promise<pokemonAPI> => {
   return await fetch(`https://pokeapi.co/api/v2/pokemon/${index}/`)
     .then((res) => res.json());
 }
 
-const getPokemonDescription = async(index: number): Promise<string> => {
+export const getPokemonDescription = async(index: number): Promise<string> => {
   const description = await fetch(
   `https://pokeapi.co/api/v2/pokemon-species/${index}`
   ).then((res) => res.json());
