@@ -1,22 +1,23 @@
 import React from "react";
 import Section from "../../components/Section";
+import TransparentButton from "../../components/Button";
 import SvgIcon from "../../components/Svg";
 import { addZerosToStart } from "../../../functions/utils"
 import { arrowBackIcon } from "../../../images/svgPaths"
-
-
-import { ContentWrapper, BackIcon, TextWrapper, Title, Number, Image } from "./UpperPokemonInfo.styles"
+import { ContentWrapper, TextWrapper, Text, Title, Number, Image } from "./UpperPokemonInfo.styles"
 
 interface Props {
   name: string;
   number: number;
   imageUrl: string;
+  handleBackButton: VoidFunction
 }
 
 export const UpperPokemonInfoSection = ({
   name,
   number,
-  imageUrl
+  imageUrl,
+  handleBackButton
 }: Props) => {
   const numberWithZeros = addZerosToStart(number)
 
@@ -24,13 +25,17 @@ export const UpperPokemonInfoSection = ({
     <Section>
       <ContentWrapper>
         <TextWrapper>
-          <SvgIcon path={arrowBackIcon} />
-          <Title>
-            {name}
-          </Title>
-          <Number>
-            #{numberWithZeros}
-          </Number>
+          <TransparentButton onClick={handleBackButton}>
+            <SvgIcon path={arrowBackIcon} />
+          </TransparentButton>
+          <Text>
+            <Title> 
+              {name}
+            </Title>
+            <Number>
+              #{numberWithZeros}
+            </Number>
+          </Text>
         </TextWrapper>
         <Image src={imageUrl} alt={`${name} image`}/>
       </ContentWrapper>

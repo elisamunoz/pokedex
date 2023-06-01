@@ -6,39 +6,38 @@ export const  ContentWrapper= styled.div`
   margin: 8px;
 `;
 
-export const BackIcon = styled.img`
-  width: 48px;
-  height: 48px;
-  fill: red;
-`
-
 export const TextWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 20px;
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: 30px;
+`
+
+export const Text = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-left: 8px;
 `
 
 export const Title = styled.h4`
+  align-self: center;
   text-transform: capitalize;
   margin: 0;
-  /* display: flex;
-  flex-direction: row; */
 `
 
 export const Number = styled.h5`
-  font-size: 12px;
+  align-self: baseline;
+  font-size: 0.5em;
   margin: 0;
-  /* margin: 8px;
-  text-align: left; */
 `
 
 export const Image = styled.img`
-  margin: auto;
+  margin: 0 auto -70px auto;
   height: 200px;
   width: 200px;
-  /* margin: 8px;
-  text-align: left; */
+  z-index: 10;
 `
