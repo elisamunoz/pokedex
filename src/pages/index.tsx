@@ -4,7 +4,7 @@ import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
 import LowerPokemonInfo from "../ui/layout/LowerPokemonInfo";
 import UpperPokemonInfo from "../ui/layout/UpperPokemonInfo";
 import Select from "../ui/components/Select";
-import { StyledBody } from "../styles/app.styles";
+import { StyledBody, PokemonCard } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
 
@@ -17,7 +17,7 @@ const IndexPage: React.FC<PageProps> = () => {
     number: 0,
     imageUrl: '',
   })
-  const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(false)
+  const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(true)
 
   useEffect(() => {
     const fetchPokemons = async() => {
@@ -56,7 +56,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <StyledBody type={mainType}>
-      <Select 
+      {/* <Select 
         onChange={handleOnSelectChange}
         defaultValue="Default Value" 
         instructionOption="Choose an option"
@@ -64,23 +64,29 @@ const IndexPage: React.FC<PageProps> = () => {
           value: pokemon.number,
           label: pokemon.name,
         }))}
-      />
-      <UpperPokemonInfo 
-        onClickBackButton={handleBackButton}
-        onClickNextButton={handleNextButton}
-        onClickPreviousButton={handlePreviousButton}
-        name={currentPokemonDetails.name}
-        number={currentPokemonDetails.number}
-        imageUrl={currentPokemonDetails.imageUrl}
-      />
-      <LowerPokemonInfo 
-        types={currentPokemonDetails.type}
-        statsValue={currentPokemonDetails.stats}
-        weight={currentPokemonDetails.weight} 
-        height={currentPokemonDetails.height}
-        moves={currentPokemonDetails.moves}
-        description={currentPokemonDetails.description}
-      />
+      /> */}
+      {isPokemonCardVisible &&
+        <PokemonCard>
+          <UpperPokemonInfo 
+            onClickBackButton={handleBackButton}
+            onClickNextButton={handleNextButton}
+            onClickPreviousButton={handlePreviousButton}
+            name={currentPokemonDetails.name}
+            number={currentPokemonDetails.number}
+            imageUrl={currentPokemonDetails.imageUrl}
+          />
+          <LowerPokemonInfo 
+            types={currentPokemonDetails.type}
+            statsValue={currentPokemonDetails.stats}
+            weight={currentPokemonDetails.weight} 
+            height={currentPokemonDetails.height}
+            moves={currentPokemonDetails.moves}
+            description={currentPokemonDetails.description}
+          />
+        </PokemonCard> 
+      }
+     
+      
     </StyledBody>
   )
 }

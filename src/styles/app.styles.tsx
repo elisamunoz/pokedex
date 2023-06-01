@@ -19,3 +19,7 @@ export const StyledBody = styled.main<Props>`
     }
   }}
 `;
+
+export const PokemonCard = styled.div`
+  
+`

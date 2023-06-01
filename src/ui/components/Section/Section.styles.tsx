@@ -5,8 +5,7 @@ export const Section = styled.section`
   flex-direction: column;
   text-align: center;
   height: 100%;
-  /* max-width: 90%; */
-  /* margin: auto; */
+  z-index: 10;
 `;
 
 export const Title = styled.h4`

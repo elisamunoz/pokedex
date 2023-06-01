@@ -1,10 +1,20 @@
 import styled from 'styled-components';
 
-export const  ContentWrapper= styled.div`
+export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   margin: 8px;
 `;
+
+export const PokeballWrapper = styled.div`
+  position: absolute;
+  top: -25px;
+  right: -18px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.2;
+`
 
 export const TextWrapper = styled.div`
   display: flex;
@@ -21,6 +31,7 @@ export const Text = styled.div`
   justify-content: space-between;
   flex-grow: 1;
   padding-left: 8px;
+  z-index: 30;
 `
 
 export const Title = styled.h4`
