@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { getPokemonList } from '../../functions/api/utils';
-import { useAppDispatch } from './';
-
-import { addPokemons } from '../slices/pokemons.slice'
+import { getPokemonList, getPokemonDetails } from '../../functions/api/utils';
+import { getPokemons } from "../selectors/pokemons.selectors";
+import { addPokemons, addPokemonDetails } from '../slices/pokemons.slice';
+import { useAppDispatch, useAppSelector } from './';
 
 export const useFetchPokemons = () => {
   const dispatch = useAppDispatch();
@@ -16,3 +16,16 @@ export const useFetchPokemons = () => {
     fetchPokemons();
   }, []);
 };
+
+export const useFetchPokemonDetails = () => {
+  const dispatch = useAppDispatch();
+  const pokemonList = useAppSelector(getPokemons);   
+
+  return async(pokNumber: number = 0) => {
+    // if()
+    const pokemonDetails = await getPokemonDetails(pokNumber, pokemonList)
+
+    dispatch(addPokemonDetails(pokemonDetails))
+  };
+};
+

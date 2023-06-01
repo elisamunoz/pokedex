@@ -1,12 +1,18 @@
 import type { RootState } from '../store';
-import type { PokemonType } from '../../types/pokemon';
+import type { PokemonType, PokemonDetailsType } from '../../types/pokemon';
 import type { PokemonState } from '../slices/pokemons.slice';
 
-export const selectPokemonsData = (state: RootState): PokemonState =>
+export const getPokemonsData = (state: RootState): PokemonState =>
   state.pokemons;
 
-export const selectPokemons = (state: RootState): PokemonType[] =>
-  state.pokemons.list;
+export const getPokemons = (state: RootState): PokemonType[] =>
+  state?.pokemons?.list;
 
-export const selectPokemonSpecies = (state: RootState): any[] =>
+export const getPokemonsDetails = (state: RootState): { [key: number]: PokemonDetailsType } =>
+  state?.pokemons?.details;
+
+export const getPokemonsDetailsByNumber = (state: RootState, pkNumber: number): PokemonDetailsType =>
+  getPokemonsDetails(state)[pkNumber] || {};
+
+export const getPokemonSpecies = (state: RootState): any[] =>
   state.pokemons.species;

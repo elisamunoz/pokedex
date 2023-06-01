@@ -8,11 +8,13 @@ export const pokemonsSlice = createSlice({
   name: 'selectedPokemon',
   initialState,
   reducers: {
-    set: (_, action: PayloadAction<number>) => action.payload,
+    setIndex: (_, action: PayloadAction<number>) => action.payload,
+    getPrevIndex: (state) => state - 1,
+    getNextIndex: (state) => state + 1,
     reset: () => initialState,
   }
 })
 
-export const { set, reset } = pokemonsSlice.actions
+export const { setIndex, reset, getPrevIndex, getNextIndex } = pokemonsSlice.actions
 
 export default pokemonsSlice.reducer

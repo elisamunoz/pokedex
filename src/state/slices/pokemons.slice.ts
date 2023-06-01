@@ -4,7 +4,7 @@ import { PokemonType, PokemonDetailsType } from '../../types/pokemon';
 export interface PokemonState {
   list: PokemonType[],
   species: any[],
-  details: PokemonDetailsType[]
+  details: { [key: number]: PokemonDetailsType },
 }
 
 const initialState: PokemonState = {
@@ -26,10 +26,18 @@ export const pokemonsSlice = createSlice({
         action.payload
       ]
     },
+    addPokemonDetails: (state, action: PayloadAction<PokemonDetailsType>) => {
+      const pk = action.payload;
+
+      state.details = {
+        ...state.details,
+        [pk.number]: pk,
+      }
+    },
     clear: () => initialState,
   }
 })
 
-export const { addPokemons, addPokemon, clear } = pokemonsSlice.actions
+export const { addPokemons, addPokemon, addPokemonDetails, clear } = pokemonsSlice.actions
 
 export default pokemonsSlice.reducer

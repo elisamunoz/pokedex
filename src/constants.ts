@@ -19,9 +19,7 @@ export enum POKEMON_TYPES {
   WATER = 'water'
 };
 
-export const POKEMON_TYPE_COLORS: {
-  [key in POKEMON_TYPES]: string
-} = {
+export const POKEMON_TYPE_COLORS: Record<POKEMON_TYPES, string> = {
   [POKEMON_TYPES.NORMAL]: '#AAA67F',
   [POKEMON_TYPES.BUG]: '#A7B723',
   [POKEMON_TYPES.POISON]: '#A43E9E',
@@ -61,7 +59,7 @@ export const STAT_TYPES_2: { [key: string]: STAT_TYPES} = {
   'hp': STAT_TYPES.HP,
 }
 
-export const POKEMON_TYPE_STATS: object = {
+export const POKEMON_TYPE_STATS: Record<STAT_TYPES, string> = {
   [STAT_TYPES.HP]: 'HP',
   [STAT_TYPES.ATK]: 'ATK',
   [STAT_TYPES.DEF]: 'DEF',
