@@ -8,47 +8,56 @@ import { StyledBody } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
 
-const styles = {
-  size: {
-    width: "200px",
-    height: "200px"
-  }
-}
-
-
 const IndexPage: React.FC<PageProps> = () => {
   const [pokemonList, setPokemonList] = useState<PokemonType[]>([])
+  const [currentPokemonIndex, setCurrentPokemonIndex] = useState<number>(0);
   const [currentPokemonDetails, setCurrentPokemonDetails] = useState<PokemonDetailsType>({
     name: "",
     url: "",
     number: 0,
     imageUrl: '',
   })
+  const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(false)
 
   useEffect(() => {
     const fetchPokemons = async() => {
       const pokemons = await getPokemonList()
       setPokemonList(pokemons);
     }
-    fetchPokemons()  
+    fetchPokemons()
 
   }, [])
 
-  
+  useEffect(() => {
+    const fetchPokemonDetails = async() => {
+      const pokNumber = pokemonList.at(currentPokemonIndex)?.number || 0;
 
-  const onhandleSelectChange = async (selectedValue: number) => {
-    const pokemonDetails = await getPokemonDetails(selectedValue, pokemonList)
-    setCurrentPokemonDetails({
-      ...pokemonDetails
-    })
+      const pokemonDetails = await getPokemonDetails(pokNumber, pokemonList)
+      setCurrentPokemonDetails({
+        ...pokemonDetails
+      })
+    }
+    fetchPokemonDetails()
+  }, [currentPokemonIndex])
+
+  const handleOnSelectChange = async (selectedValue: number) => {
+    setCurrentPokemonIndex(selectedValue);
   }
 
   const [ mainType ] = currentPokemonDetails?.type || [];
 
+  const handleBackButton = () => {
+    setIsPokemonCardVisible(!isPokemonCardVisible)
+    console.log(isPokemonCardVisible)
+  }
+
+  const handlePreviousButton = () => setCurrentPokemonIndex(currentPokemonIndex - 1)
+  const handleNextButton = () => setCurrentPokemonIndex(currentPokemonIndex + 1)
+
   return (
     <StyledBody type={mainType}>
       <Select 
-        onChange={onhandleSelectChange}
+        onChange={handleOnSelectChange}
         defaultValue="Default Value" 
         instructionOption="Choose an option"
         options={pokemonList.map(pokemon => ({
@@ -57,6 +66,9 @@ const IndexPage: React.FC<PageProps> = () => {
         }))}
       />
       <UpperPokemonInfo 
+        onClickBackButton={handleBackButton}
+        onClickNextButton={handleNextButton}
+        onClickPreviousButton={handlePreviousButton}
         name={currentPokemonDetails.name}
         number={currentPokemonDetails.number}
         imageUrl={currentPokemonDetails.imageUrl}
