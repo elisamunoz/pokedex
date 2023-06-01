@@ -10,7 +10,7 @@ export const TextWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 0;
   color: #FFFFFF;
   font-size: 30px;
 `
@@ -36,8 +36,13 @@ export const Number = styled.h5`
 `
 
 export const Image = styled.img`
-  margin: 0 auto -70px auto;
+  margin: 0 auto -80px auto;
   height: 200px;
   width: 200px;
   z-index: 10;
+`
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `

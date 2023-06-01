@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   text-transform: capitalize;
   flex-grow: 1;
   border-right: 1px solid #E0E0E0;
@@ -18,10 +18,6 @@ export const UpperContent = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-`
-
-export const Icon = styled.div`
-  font-size: 1.5em;
 `
 
 export const MovesWrapper = styled.div`

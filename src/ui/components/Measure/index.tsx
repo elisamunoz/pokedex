@@ -1,6 +1,8 @@
 import React from "react";
-import { Wrapper, UpperContent, Icon, Content, ContentType, MovesWrapper } from "./Measure.styles";
 import { CONTENT_TYPES } from "../../layout/About";
+import SvgIcon from "../Svg";
+import { weightIcon, heightIcon  } from "../../../images/svgPaths"
+import { Wrapper, UpperContent, Content, ContentType, MovesWrapper } from "./Measure.styles";
 
 interface Props {
   content?: number | string[];
@@ -24,13 +26,20 @@ export const MeasureComponent = ({
 }: Props) =>{
 
   const finalContent = getFinalContent(contentType, content)
-  
+  const svgIcon = contentType === CONTENT_TYPES.WEIGHT
+    ? weightIcon
+    : heightIcon
+
 
 return (
     <Wrapper>
       <UpperContent>
         {contentType !== CONTENT_TYPES.MOVES &&
-          <Icon>🐀</Icon>
+          <SvgIcon 
+            size= {30} 
+            color="#1D1D1D" 
+            path={svgIcon}
+          />
         }
         {typeof content !== 'number'
         ? <MovesWrapper>{content.map(move => <Content key={move}>{move}</Content>)}</MovesWrapper>
