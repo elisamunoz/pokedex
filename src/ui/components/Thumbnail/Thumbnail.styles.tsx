@@ -23,6 +23,7 @@ export const Number = styled.div`
 
 export const Name = styled.div`
   padding-left: 10px;
+  text-transform: capitalize;
 `
 
 export const Image = styled.img`

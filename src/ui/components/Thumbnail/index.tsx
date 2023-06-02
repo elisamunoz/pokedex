@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../Button";
 import { ThumbnailWrapper, Number, Name, Image } from "./Thumbnail.styles";
 
 interface Props {
