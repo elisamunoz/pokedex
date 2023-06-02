@@ -1,49 +1,43 @@
 import React, { useEffect, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
+import { useDispatch, useSelector } from "react-redux";
 import PokemonSearch from "../ui/layout/PokemonSearch"
 import LowerPokemonInfo from "../ui/layout/LowerPokemonInfo";
 import UpperPokemonInfo from "../ui/layout/UpperPokemonInfo";
 // import Select from "../ui/components/Select";
 import { StyledBody, PokemonCard } from "../styles/app.styles";
-import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
+import { useFetchPokemons, useFetchPokemonDetails } from "../state/hooks/pokemon";
+import { getNextIndex, getPrevIndex, setIndex } from "../state/slices/selectedPokemon.slice";
+import { getSelectedPokemon, getSelectedPokemonDetails } from '../state/selectors/selectedPokemon.selectors';
+import { getPokemons } from "../state/selectors/pokemons.selectors";
 
 const IndexPage: React.FC<PageProps> = () => {
-  const [pokemonList, setPokemonList] = useState<PokemonType[]>([])
-  const [currentPokemonIndex, setCurrentPokemonIndex] = useState<number>(1);
-  const [currentPokemonDetails, setCurrentPokemonDetails] = useState<PokemonDetailsType>({
-    name: "",
-    url: "",
-    number: 0,
-    imageUrl: '',
-  })
+
+  useFetchPokemons();
+  const fetchPokemonDetails = useFetchPokemonDetails();
+  const dispatch = useDispatch();
+
+  const pokemonList = useSelector(getPokemons);  
+  const selectedPokemon = useSelector(getSelectedPokemon);
+  const selectedPokemonDetails = useSelector(getSelectedPokemonDetails);
+  
   const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(false)
   const [filteredPokemons, setFilteredPokemons] = useState(pokemonList)
 
-  useEffect(() => {
-    const fetchPokemons = async() => {
-      const pokemons = await getPokemonList()
-      setPokemonList(pokemons);
-      setFilteredPokemons(pokemons)
-    }
-    fetchPokemons()
 
-  }, [])
+
+  const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(true);
 
   useEffect(() => {
-    const fetchPokemonDetails = async() => {
-      const pokNumber = pokemonList.at(currentPokemonIndex)?.number || 0;
+    fetchPokemonDetails(selectedPokemon);
+  }, [selectedPokemon]);
 
-      const pokemonDetails = await getPokemonDetails(pokNumber, pokemonList)
-      setCurrentPokemonDetails({
-        ...pokemonDetails
-      })
-    }
-    fetchPokemonDetails()
-  }, [currentPokemonIndex])
+  const handlePreviousButton = () => dispatch(getPrevIndex());
+  const handleNextButton = () => dispatch(getNextIndex());
+  const handleOnSelectChange = (selectedValue: number) => dispatch(setIndex(selectedValue));
 
-  const [ mainType ] = currentPokemonDetails?.type || [];
+  const [ mainType ] = selectedPokemonDetails?.type || [];
 
   const filterPokemons = (pokemons: PokemonType[], input: string) => pokemons
     .filter(pokemon => pokemon.name
@@ -65,7 +59,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <StyledBody type={mainType}>
-      {/* <Select 
+<!--       <Select 
         onChange={handleOnSelectChange}
         defaultValue="Default Value" 
         instructionOption="Choose an option"
@@ -73,7 +67,8 @@ const IndexPage: React.FC<PageProps> = () => {
           value: pokemon.number,
           label: pokemon.name,
         }))}
-      /> */}
+      /> -->
+
       {!isPokemonCardVisible && 
         <PokemonSearch
           pokemons={filteredPokemons}
@@ -87,17 +82,17 @@ const IndexPage: React.FC<PageProps> = () => {
             onClickBackButton={handleBackButton}
             onClickNextButton={handleNextButton}
             onClickPreviousButton={handlePreviousButton}
-            name={currentPokemonDetails.name}
-            number={currentPokemonDetails.number}
-            imageUrl={currentPokemonDetails.imageUrl}
+            name={selectedPokemonDetails.name}
+            number={selectedPokemonDetails.number}
+            imageUrl={selectedPokemonDetails.imageUrl}
           />
           <LowerPokemonInfo 
-            types={currentPokemonDetails.type}
-            statsValue={currentPokemonDetails.stats}
-            weight={currentPokemonDetails.weight} 
-            height={currentPokemonDetails.height}
-            moves={currentPokemonDetails.moves}
-            description={currentPokemonDetails.description}
+            types={selectedPokemonDetails.type}
+            statsValue={selectedPokemonDetails.stats}
+            weight={selectedPokemonDetails.weight} 
+            height={selectedPokemonDetails.height}
+            moves={selectedPokemonDetails.moves}
+            description={selectedPokemonDetails.description}
           />
         </PokemonCard> 
       }
