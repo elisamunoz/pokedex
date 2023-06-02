@@ -18,7 +18,8 @@ const IndexPage: React.FC<PageProps> = () => {
     number: 0,
     imageUrl: '',
   })
-  const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(true)
+  const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(false)
+  const [searchInput, setSearchInput] = useState("")
 
   useEffect(() => {
     const fetchPokemons = async() => {
@@ -56,6 +57,7 @@ const IndexPage: React.FC<PageProps> = () => {
   const handleShowPokemonCard = () => {
     setIsPokemonCardVisible(true)
   }
+  const handleSearchBar = (searchInput: string) => console.log(searchInput)
 
   return (
     <StyledBody type={mainType}>
@@ -72,6 +74,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <PokemonSearch
           pokemons={pokemonList}
           onClickThumbnail={handleShowPokemonCard}
+          onChange={handleSearchBar}
         />
       }
       {isPokemonCardVisible &&

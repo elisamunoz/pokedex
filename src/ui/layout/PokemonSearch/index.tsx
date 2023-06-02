@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import Body from "../../components/Body";
 import SvgIcon from "../../components/Svg";
 import Thumbnail from "../../components/Thumbnail";
@@ -11,13 +11,18 @@ import { addZerosToStart } from '../../../functions/utils'
 interface Props {
   onClickThumbnail: VoidFunction;
   pokemons: PokemonType[];
+  onChange: (value: string) => void,
 }
 
 export const BaseStatsSection = ({
   onClickThumbnail,
-  pokemons
+  pokemons,
+  onChange
 }: Props) => {
-  
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target?.value;
+    onChange(inputValue)
+  }
   return (
     <PokemonSearchWrapper>
       <Header>
@@ -26,7 +31,11 @@ export const BaseStatsSection = ({
           <Title>Pokédex</Title>
         </UpperContent>
         <SearchBarWrapper>
-          <SearchBar placeholder="Enter a Pokemon name"></SearchBar>
+          <SearchBar 
+            type="text"
+            placeholder="Enter a Pokemon name"
+            onChange={handleOnChange}
+          />
         </SearchBarWrapper>     
       </Header>
       
