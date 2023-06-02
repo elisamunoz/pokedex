@@ -53,7 +53,9 @@ const IndexPage: React.FC<PageProps> = () => {
 
   const handlePreviousButton = () => setCurrentPokemonIndex(currentPokemonIndex - 1)
   const handleNextButton = () => setCurrentPokemonIndex(currentPokemonIndex + 1)
-  const handleGetPokemon = () => setIsPokemonCardVisible(true)
+  const handleShowPokemonCard = () => {
+    setIsPokemonCardVisible(true)
+  }
 
   return (
     <StyledBody type={mainType}>
@@ -68,7 +70,8 @@ const IndexPage: React.FC<PageProps> = () => {
       /> */}
       {!isPokemonCardVisible && 
         <PokemonSearch
-          onClickGetPokemon={handleGetPokemon}
+          pokemons={pokemonList}
+          onClickThumbnail={handleShowPokemonCard}
         />
       }
       {isPokemonCardVisible &&

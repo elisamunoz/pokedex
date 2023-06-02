@@ -12,7 +12,7 @@ interface Props {
   imageUrl: string;
   onClickBackButton: VoidFunction;
   onClickNextButton: VoidFunction;
-  onClickPreviousButton: VoidFunction
+  onClickPreviousButton: VoidFunction;
 }
 
 export const UpperPokemonInfoSection = ({
@@ -40,7 +40,7 @@ export const UpperPokemonInfoSection = ({
               {name}
             </Title>
             <Number>
-              #{numberWithZeros}
+              {numberWithZeros}
             </Number>
           </Text>
         </TextWrapper>

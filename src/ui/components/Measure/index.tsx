@@ -38,7 +38,8 @@ return (
           <SvgIcon 
             size= {30} 
             color="#1D1D1D" 
-            path={svgIcon}
+            path={svgIcon.path}
+            viewBox={svgIcon.viewBox}
           />
         }
         {typeof content !== 'number'

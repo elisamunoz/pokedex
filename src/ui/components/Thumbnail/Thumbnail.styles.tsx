@@ -11,6 +11,8 @@ export const ThumbnailWrapper = styled.div`
   font-size: 13px;
   font-weight: 700;
   margin: 3px 0;
+  overflow: hidden;
+  color: #1D1D1D;
 `
 
 export const Number = styled.div`
@@ -24,7 +26,7 @@ export const Name = styled.div`
 `
 
 export const Image = styled.img`
-  width: 60%;
+  height: 60%;
   margin: auto;
   /* padding: 16px; */
 `

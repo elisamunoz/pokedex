@@ -1,22 +1,26 @@
 import React from "react";
+import Button from "../Button";
 import { ThumbnailWrapper, Number, Name, Image } from "./Thumbnail.styles";
-import { pokeBall } from "../../../images/svgPaths";
 
 interface Props {
   number: string,
   name: string,
-  image: string
+  image: string,
+  onClickThumbnail: VoidFunction
 }
 
 export const ThumbnailComponent = ({
   number,
   name,
-  image
+  image,
+  onClickThumbnail
 }: Props) =>(
-    <ThumbnailWrapper>
+    <ThumbnailWrapper
+      onClick={onClickThumbnail}
+    >
       <Number>{number}</Number>
       <Image src={image} alt={`${name} image`}/>
-      <Name>{name}</Name>
+      <Name>{name}</Name>    
     </ThumbnailWrapper>
   )
 

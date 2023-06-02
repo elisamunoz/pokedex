@@ -58,3 +58,15 @@ export interface pokemonAPI extends PokemonType {
   imageUrl: string;
   description: string;
 }
+
+/************* * */
+// General Types //
+/************** */
+
+// export enum ICON_TYPES {
+//   ARROW_NEXT = "arrowNextIcon",
+//   ARROW_PREVIOUS = "arrowPreviousIcon",
+//   ARROW_BACK = "arrowBackIcon",
+//   WEIGHT = "weightIcon",
+//   HEIGHT = "heightIcon"
+// }

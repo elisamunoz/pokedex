@@ -19,21 +19,35 @@ export const ThumbnailsWrapper = styled.div`
   height: 100%;
 `
 
-export const TextWrapper = styled.div`
+export const Header = styled.header`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-size: 24px;
   font-weight: 700;
   color: #fff;
   padding: 16px;
 `
 
+export const UpperContent = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
 export const Title = styled.div`
   align-self: center;
   padding-left: 16px;
 `
+export const SearchBarWrapper = styled.div`
+  display: flex;
+`
 
-export const SearchBar = styled.div`
-  
+export const SearchBar = styled.input`
+  min-height: 25px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
+  padding: 0px 12px;
+  width: 100%;
+  margin: 12px 0 0;
 `
 

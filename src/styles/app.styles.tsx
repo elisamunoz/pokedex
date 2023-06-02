@@ -11,6 +11,7 @@ export const StyledBody = styled.main<Props>`
   color: #1D1D1D;
   font-family: 'Poppins', sans-serif;
   background: currentColor;
+  min-height: 100vh;
 
   ${({ type = POKEMON_TYPES.NORMAL }) => {
     
