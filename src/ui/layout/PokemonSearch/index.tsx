@@ -9,7 +9,7 @@ import { addZerosToStart } from '../../../functions/utils'
 
 
 interface Props {
-  onClickThumbnail: VoidFunction;
+  onClickThumbnail: (pokemonNumber: number) =>  void;
   pokemons: PokemonType[];
   onChange: (value: string) => void,
 }
@@ -44,9 +44,10 @@ export const BaseStatsSection = ({
         <ThumbnailsWrapper>
           {pokemons.map(pokemon => {
             const pokemonNumber = addZerosToStart(pokemon.number)
+
             return (
               <Thumbnail
-                onClickThumbnail={onClickThumbnail}
+                onClickThumbnail={() => onClickThumbnail(pokemon.number)}
                 key={pokemon.number}
                 number={pokemonNumber}
                 name={pokemon.name}
