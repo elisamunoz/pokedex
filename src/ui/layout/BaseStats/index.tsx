@@ -19,7 +19,6 @@ export const BaseStatsSection = ({
       title='Base Stats'
     >
       <ContentWrapper>
-        {selectedPokemon}
         {statsValue?.map(stat => {
           return (
             <StatInfo key={stat.name} label={stat.name} value={stat.value} />

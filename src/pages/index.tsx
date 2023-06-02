@@ -9,8 +9,6 @@ import '../styles/global.css';
 import { useFetchPokemons, useFetchPokemonDetails } from "../state/hooks/pokemon";
 import { getNextIndex, getPrevIndex, setIndex } from "../state/slices/selectedPokemon.slice";
 import { getSelectedPokemon, getSelectedPokemonDetails } from '../state/selectors/selectedPokemon.selectors';
-import { getPokemons } from "../state/selectors/pokemons.selectors";
-import type { PokemonType } from "../types/pokemon";
 
 const IndexPage: React.FC<PageProps> = () => {
 
@@ -18,12 +16,10 @@ const IndexPage: React.FC<PageProps> = () => {
   const fetchPokemonDetails = useFetchPokemonDetails();
   const dispatch = useDispatch();
 
-  const pokemonList = useSelector(getPokemons);  
   const selectedPokemon = useSelector(getSelectedPokemon);
   const selectedPokemonDetails = useSelector(getSelectedPokemonDetails);
   
   const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(false);
-  const [query, setQuery] = useState('');
 
   useEffect(() => {
     fetchPokemonDetails(selectedPokemon);
@@ -33,9 +29,6 @@ const IndexPage: React.FC<PageProps> = () => {
   const handleNextButton = () => dispatch(getNextIndex());
 
   const [ mainType ] = selectedPokemonDetails?.type || [];
-
-  const filteredPokemons = pokemonList
-    .filter((pokemon: PokemonType) => pokemon.name.includes(query))
 
   const handleBackButton = () => {
     setIsPokemonCardVisible(false)
@@ -50,9 +43,7 @@ const IndexPage: React.FC<PageProps> = () => {
     <StyledBody type={mainType}>
       {!isPokemonCardVisible && 
         <PokemonSearch
-          pokemons={filteredPokemons}
           onClickThumbnail={handleShowPokemonCard}
-          onChange={setQuery}
         />
       }
       {isPokemonCardVisible &&

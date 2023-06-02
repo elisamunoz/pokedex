@@ -1,4 +1,5 @@
-import React, { ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Body from "../../components/Body";
 import SvgIcon from "../../components/Svg";
 import Thumbnail from "../../components/Thumbnail";
@@ -6,23 +7,27 @@ import { pokeBall } from "../../../images/svgPaths";
 import { PokemonSearchWrapper, ThumbnailsWrapper, Header, UpperContent, SearchBarWrapper, SearchBar, Title } from "./PokemonSearch.styles"
 import { PokemonType } from "../../../types/pokemon";
 import { addZerosToStart } from '../../../functions/utils'
+import { getPokemons } from "../../../state/selectors/pokemons.selectors";
 
 
 interface Props {
   onClickThumbnail: (pokemonNumber: number) =>  void;
-  pokemons: PokemonType[];
-  onChange: (value: string) => void,
 }
 
 export const BaseStatsSection = ({
   onClickThumbnail,
-  pokemons,
-  onChange
 }: Props) => {
+  const [query, setQuery] = useState('');
+  const pokemonList = useSelector(getPokemons);
+  
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target?.value;
-    onChange(inputValue)
+    const value = event.target?.value;
+    setQuery(value)
   }
+
+  const filteredPokemons: PokemonType[] = pokemonList
+    .filter((pokemon: PokemonType) => pokemon.name.includes(query))
+
   return (
     <PokemonSearchWrapper>
       <Header>
@@ -38,11 +43,9 @@ export const BaseStatsSection = ({
           />
         </SearchBarWrapper>     
       </Header>
-      
-      
       <Body>
         <ThumbnailsWrapper>
-          {pokemons.map(pokemon => {
+          {filteredPokemons.map(pokemon => {
             const pokemonNumber = addZerosToStart(pokemon.number)
 
             return (

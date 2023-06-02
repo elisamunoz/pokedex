@@ -6,4 +6,5 @@ export const Body = styled.div`
   border-radius: 8px;
   margin: 8px;
   padding: 0;
+  flex-grow: 1;
 `
