@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { getPokemonList, getPokemonDetails } from "../functions/api/utils";
+import PokemonSearch from "../ui/layout/PokemonSearch"
 import LowerPokemonInfo from "../ui/layout/LowerPokemonInfo";
 import UpperPokemonInfo from "../ui/layout/UpperPokemonInfo";
-import Select from "../ui/components/Select";
+// import Select from "../ui/components/Select";
 import { StyledBody, PokemonCard } from "../styles/app.styles";
 import type { PokemonType, PokemonDetailsType } from "../types/pokemon";
 import '../styles/global.css';
 
 const IndexPage: React.FC<PageProps> = () => {
   const [pokemonList, setPokemonList] = useState<PokemonType[]>([])
-  const [currentPokemonIndex, setCurrentPokemonIndex] = useState<number>(0);
+  const [currentPokemonIndex, setCurrentPokemonIndex] = useState<number>(1);
   const [currentPokemonDetails, setCurrentPokemonDetails] = useState<PokemonDetailsType>({
     name: "",
     url: "",
@@ -40,19 +41,19 @@ const IndexPage: React.FC<PageProps> = () => {
     fetchPokemonDetails()
   }, [currentPokemonIndex])
 
-  const handleOnSelectChange = async (selectedValue: number) => {
-    setCurrentPokemonIndex(selectedValue);
-  }
+  // const handleOnSelectChange = async (selectedValue: number) => {
+  //   setCurrentPokemonIndex(selectedValue);
+  // }
 
   const [ mainType ] = currentPokemonDetails?.type || [];
 
   const handleBackButton = () => {
-    setIsPokemonCardVisible(!isPokemonCardVisible)
-    console.log(isPokemonCardVisible)
+    setIsPokemonCardVisible(false)
   }
 
   const handlePreviousButton = () => setCurrentPokemonIndex(currentPokemonIndex - 1)
   const handleNextButton = () => setCurrentPokemonIndex(currentPokemonIndex + 1)
+  const handleGetPokemon = () => setIsPokemonCardVisible(true)
 
   return (
     <StyledBody type={mainType}>
@@ -65,6 +66,11 @@ const IndexPage: React.FC<PageProps> = () => {
           label: pokemon.name,
         }))}
       /> */}
+      {!isPokemonCardVisible && 
+        <PokemonSearch
+          onClickGetPokemon={handleGetPokemon}
+        />
+      }
       {isPokemonCardVisible &&
         <PokemonCard>
           <UpperPokemonInfo 
@@ -85,8 +91,6 @@ const IndexPage: React.FC<PageProps> = () => {
           />
         </PokemonCard> 
       }
-     
-      
     </StyledBody>
   )
 }
