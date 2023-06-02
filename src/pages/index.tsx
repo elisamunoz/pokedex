@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import Select from '../ui/components/Select';
 import { useDispatch, useSelector } from "react-redux";
+import PokemonSearch from "../ui/layout/PokemonSearch"
 import LowerPokemonInfo from "../ui/layout/LowerPokemonInfo";
 import UpperPokemonInfo from "../ui/layout/UpperPokemonInfo";
+// import Select from "../ui/components/Select";
 import { StyledBody, PokemonCard } from "../styles/app.styles";
 import '../styles/global.css';
 import { useFetchPokemons, useFetchPokemonDetails } from "../state/hooks/pokemon";
@@ -12,6 +13,7 @@ import { getSelectedPokemon, getSelectedPokemonDetails } from '../state/selector
 import { getPokemons } from "../state/selectors/pokemons.selectors";
 
 const IndexPage: React.FC<PageProps> = () => {
+
   useFetchPokemons();
   const fetchPokemonDetails = useFetchPokemonDetails();
   const dispatch = useDispatch();
@@ -19,6 +21,11 @@ const IndexPage: React.FC<PageProps> = () => {
   const pokemonList = useSelector(getPokemons);  
   const selectedPokemon = useSelector(getSelectedPokemon);
   const selectedPokemonDetails = useSelector(getSelectedPokemonDetails);
+  
+  const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(false)
+  const [filteredPokemons, setFilteredPokemons] = useState(pokemonList)
+
+
 
   const [isPokemonCardVisible, setIsPokemonCardVisible] = useState(true);
 
@@ -32,14 +39,27 @@ const IndexPage: React.FC<PageProps> = () => {
 
   const [ mainType ] = selectedPokemonDetails?.type || [];
 
+  const filterPokemons = (pokemons: PokemonType[], input: string) => pokemons
+    .filter(pokemon => pokemon.name
+      .includes(input))
+
   const handleBackButton = () => {
-    setIsPokemonCardVisible(!isPokemonCardVisible);
-    console.log(isPokemonCardVisible);
+    setIsPokemonCardVisible(false)
+  }
+
+  const handlePreviousButton = () => setCurrentPokemonIndex(currentPokemonIndex - 1)
+  const handleNextButton = () => setCurrentPokemonIndex(currentPokemonIndex + 1)
+  const handleShowPokemonCard = () => {
+    setIsPokemonCardVisible(true)
+  }
+  const handleSearchBar = (searchInput: string) => {
+    const filteredPokemonsByInput = filterPokemons(pokemonList, searchInput)
+    setFilteredPokemons(filteredPokemonsByInput)
   }
 
   return (
     <StyledBody type={mainType}>
-      <Select 
+<!--       <Select 
         onChange={handleOnSelectChange}
         defaultValue="Default Value" 
         instructionOption="Choose an option"
@@ -47,7 +67,15 @@ const IndexPage: React.FC<PageProps> = () => {
           value: pokemon.number,
           label: pokemon.name,
         }))}
-      />
+      /> -->
+
+      {!isPokemonCardVisible && 
+        <PokemonSearch
+          pokemons={filteredPokemons}
+          onClickThumbnail={handleShowPokemonCard}
+          onChange={handleSearchBar}
+        />
+      }
       {isPokemonCardVisible &&
         <PokemonCard>
           <UpperPokemonInfo 
@@ -68,8 +96,6 @@ const IndexPage: React.FC<PageProps> = () => {
           />
         </PokemonCard> 
       }
-     
-      
     </StyledBody>
   )
 }

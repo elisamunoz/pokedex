@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ButtonTypes {
-  isVisible: boolean;
+  isVisible?: boolean;
 }
 
 export const Button = styled.button<ButtonTypes>`
