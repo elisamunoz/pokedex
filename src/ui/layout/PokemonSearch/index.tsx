@@ -9,6 +9,7 @@ import { PokemonSearchWrapper, SortByType, SortButton, ThumbnailsWrapper, Header
 import { PokemonType } from "../../../types/pokemon";
 import { addZerosToStart, sortPokemonsOrder } from '../../../functions/utils'
 import { getPokemons } from "../../../state/selectors/pokemons.selectors";
+import { closeIcon, orderIcon, searchIcon, hashTagIcon, letterIcon } from "../../../images/svgPaths"
 
 
 interface Props {
@@ -19,8 +20,8 @@ export const BaseStatsSection = ({
   onClickThumbnail,
 }: Props) => {
   const [query, setQuery] = useState('');
-  const [orderByNumber, setOrderByNumber] = useState(true)
-  const [sortAscendentOrder, setSortAscendentOrder] = useState(true)
+  const [isOrderByNumber, setIsOrderByNumber] = useState(true)
+  const [isAscendent, setIsAscendent] = useState(true)
   const pokemonList = useSelector(getPokemons);
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -31,16 +32,16 @@ export const BaseStatsSection = ({
   const filteredPokemons: PokemonType[] = pokemonList
     .filter((pokemon: PokemonType) => pokemon.name.includes(query))
   
-  const handleOnClickSortBy = () => setOrderByNumber(!orderByNumber)
-  const handleOnClickSort = () => setSortAscendentOrder(!sortAscendentOrder)
+  const handleOnClickSortBy = () => setIsOrderByNumber(!isOrderByNumber)
+  const handleOnClickSort = () => setIsAscendent(!isAscendent)
 
-  const pokemonsFilteredAndSorted = sortPokemonsOrder(filteredPokemons, sortAscendentOrder, orderByNumber)
+  const pokemonsFilteredAndSorted = sortPokemonsOrder(filteredPokemons, isAscendent, isOrderByNumber)
 
   return (
     <PokemonSearchWrapper>
       <Header>
         <UpperContent>
-          <SvgIcon path={pokeBall.path} viewBox={pokeBall.viewBox} color="#fff" />
+          <SvgIcon icon={pokeBall} color="#fff" />
           <Title>Pokédex</Title>
         </UpperContent>
         <SearchBarWrapper>
@@ -50,10 +51,14 @@ export const BaseStatsSection = ({
             onChange={handleOnChange}
           />
           <Button onClick={handleOnClickSortBy} name="order by">
-            <SortByType>A</SortByType>
+            <SortByType>
+              <SvgIcon icon={!isOrderByNumber ? letterIcon : hashTagIcon} color="#DC0A2D" />
+            </SortByType>
           </Button>
           <Button onClick={handleOnClickSort} name="ascendent descendent">
-            <SortButton>V</SortButton>
+            <SortButton isAscendent={isAscendent}>
+              <SvgIcon icon={orderIcon} color="#DC0A2D" />
+            </SortButton>
           </Button>
         </SearchBarWrapper>     
       </Header>

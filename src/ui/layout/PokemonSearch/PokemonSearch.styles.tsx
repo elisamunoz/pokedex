@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface PokemonsOrder {
+  isAscendent?: boolean;
+}
+
 export const PokemonSearchWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,7 +54,6 @@ export const SearchBar = styled.input`
   box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
   padding: 0px 12px;
   width: 100%;
-  /* margin: 12px 0 0; */
 `
 
 const SortBtn = styled.div`
@@ -62,12 +65,15 @@ const SortBtn = styled.div`
   border-radius: 50%;
   box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
   background: #fff;
+  box-sizing: border-box;
+  padding: 3px;
 `
 
 export const SortByType = styled(SortBtn)`
   margin: 0 8px;
 `
 
-export const SortButton = styled(SortBtn)`
+export const SortButton = styled(SortBtn)<PokemonsOrder>`
+  transform: ${props => props.isAscendent ? "scaleY(-1)" : "scaleY(1)"};
 `
 

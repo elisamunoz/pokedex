@@ -4,21 +4,19 @@ import React from "react";
 interface Props {
   size?: number | string,
   color?: string,
-  path: string;
-  viewBox: string;
+  icon: {path: string, viewBox: string}
   // path: ICON_TYPES,
 }
 
 export const SvgIconComponent = ({
   size = 48,
   color = "#fff",
-  path,
-  viewBox
+  icon
 }: Props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height={size} viewBox={viewBox} width={size}>
+    <svg xmlns="http://www.w3.org/2000/svg" height={size} viewBox={icon.viewBox} width={size}>
       <g fill={color}>
-          <path d={path}/>
+          <path d={icon.path} />
         </g>
     </svg>
   )

@@ -29,11 +29,11 @@ export const UpperPokemonInfoSection = ({
     <Section>
       <ContentWrapper>
         <PokeballWrapper>
-          <SvgIcon color="color-mix(in oklab, currentColor, #f2f2f2)" size="100%" path={pokeBall.path} viewBox={pokeBall.viewBox} />
+          <SvgIcon color="color-mix(in oklab, currentColor, #f2f2f2)" size="100%" icon={pokeBall} />
         </PokeballWrapper>       
         <TextWrapper>
           <TransparentButton name="back to main page" onClick={onClickBackButton}>
-            <SvgIcon path={arrowBackIcon.path} viewBox={arrowBackIcon.viewBox}/>
+            <SvgIcon icon={arrowBackIcon} />
           </TransparentButton>
           <Text>
             <Title> 
@@ -47,10 +47,10 @@ export const UpperPokemonInfoSection = ({
         <Image src={imageUrl} alt={`${name} image`}/>
           <ButtonsWrapper>
           <TransparentButton name="previous Pokemon" onClick={onClickPreviousButton}>
-            <SvgIcon path={arrowPreviousIcon.path} viewBox={arrowPreviousIcon.viewBox} size={20}/>
+            <SvgIcon icon={arrowPreviousIcon} size={20}/>
           </TransparentButton>
           <TransparentButton name="next Pokemon" onClick={onClickNextButton}>
-            <SvgIcon path={arrowNextIcon.path} viewBox={arrowNextIcon.viewBox} size={20} />
+            <SvgIcon icon={arrowNextIcon} size={20} />
           </TransparentButton>
           </ButtonsWrapper>
       </ContentWrapper>
