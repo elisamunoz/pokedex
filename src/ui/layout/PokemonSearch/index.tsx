@@ -5,7 +5,7 @@ import SvgIcon from "../../components/Svg";
 import Thumbnail from "../../components/Thumbnail";
 import Button from "../../components/Button";
 import { pokeBall } from "../../../images/svgPaths";
-import { PokemonSearchWrapper, SortByType, SortButton, ThumbnailsWrapper, Header, UpperContent, SearchBarWrapper, SearchBar, Title } from "./PokemonSearch.styles"
+import { PokemonSearchWrapper, SortByType, SortButton, ThumbnailsWrapper, Header, UpperContent, SearchBarWrapper, SearchBar, SearchInput, Title, SvgSearch, SvgReset } from "./PokemonSearch.styles"
 import { PokemonType } from "../../../types/pokemon";
 import { addZerosToStart, sortPokemonsOrder } from '../../../functions/utils'
 import { getPokemons } from "../../../state/selectors/pokemons.selectors";
@@ -25,7 +25,7 @@ export const BaseStatsSection = ({
   const pokemonList = useSelector(getPokemons);
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target?.value;
+    let value = event.target?.value;
     setQuery(value)
   }
 
@@ -34,6 +34,7 @@ export const BaseStatsSection = ({
   
   const handleOnClickSortBy = () => setIsOrderByNumber(!isOrderByNumber)
   const handleOnClickSort = () => setIsAscendent(!isAscendent)
+  const handleOnClearClick = () => setQuery("")
 
   const pokemonsFilteredAndSorted = sortPokemonsOrder(filteredPokemons, isAscendent, isOrderByNumber)
 
@@ -45,11 +46,17 @@ export const BaseStatsSection = ({
           <Title>Pokédex</Title>
         </UpperContent>
         <SearchBarWrapper>
-          <SearchBar 
-            type="text"
-            placeholder="Enter a Pokemon name"
-            onChange={handleOnChange}
-          />
+          <SearchBar>
+            <SearchInput 
+              type="text"
+              value={query}
+              placeholder="Enter a Pokemon name"
+              onChange={handleOnChange}
+            />
+            <SvgSearch icon={searchIcon} size={16} color="#666666" />
+            <SvgReset icon={closeIcon} size={16} color="#666666" onClick={handleOnClearClick}/>
+            
+          </SearchBar>
           <Button onClick={handleOnClickSortBy} name="order by">
             <SortByType>
               <SvgIcon icon={!isOrderByNumber ? letterIcon : hashTagIcon} color="#DC0A2D" />

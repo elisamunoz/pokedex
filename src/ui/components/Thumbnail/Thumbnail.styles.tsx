@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ThumbnailWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   width: 30.3%;
@@ -24,10 +25,21 @@ export const Number = styled.div`
 export const Name = styled.div`
   padding-left: 10px;
   text-transform: capitalize;
+  z-index: 1;
 `
 
 export const Image = styled.img`
   height: 60%;
   margin: auto;
-  /* padding: 16px; */
+  z-index: 1;
+`
+
+export const Background = styled.div`
+  position: absolute;
+  background: #f3f2f2;
+  border-radius: 7px;
+  height: 40%;
+  bottom: 0;
+  right: 0;
+  left: 0;
 `
