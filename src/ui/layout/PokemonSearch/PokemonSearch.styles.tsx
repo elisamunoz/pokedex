@@ -39,15 +39,35 @@ export const Title = styled.div`
 `
 export const SearchBarWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  margin-top: 12px;
 `
 
 export const SearchBar = styled.input`
-  min-height: 25px;
+  height: 25px;
   border-radius: 16px;
   border: none;
   box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
   padding: 0px 12px;
   width: 100%;
-  margin: 12px 0 0;
+  /* margin: 12px 0 0; */
+`
+
+const SortBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
+  background: #fff;
+`
+
+export const SortByType = styled(SortBtn)`
+  margin: 0 8px;
+`
+
+export const SortButton = styled(SortBtn)`
 `
 
