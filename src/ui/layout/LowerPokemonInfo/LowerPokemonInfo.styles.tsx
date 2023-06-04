@@ -7,9 +7,9 @@ export const  ContentWrapper= styled.div`
   background: #FFFFFF;
   box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  height: 100%;
   margin: 8px;
   padding: 56px 20px 20px;
+  min-height: 400px;
 `;
 
 export const MeasureWrapper = styled.div`

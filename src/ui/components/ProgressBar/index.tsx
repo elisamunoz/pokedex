@@ -1,6 +1,5 @@
 import React from "react";
 import { StatBarWrapper, StatBar } from "./ProgressBar.styles";
-import { pokemonStat } from "../../../types/pokemon";
 
 interface Props {
   value?: number;

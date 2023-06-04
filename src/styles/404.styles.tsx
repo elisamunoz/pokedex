@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from "gatsby"
 
 export const PageStyles = styled.div`
   display: flex;
@@ -32,4 +33,9 @@ export const Image = styled.img`
   bottom: -33px;
   right: 50%;
   transform: translate(50%);
+`
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #571a17;
 `
