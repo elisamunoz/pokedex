@@ -1,6 +1,7 @@
 import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
-import { PageStyles, MainText, HeadingStyles, ParagraphStyles, Image } from "../styles/404.styles"
+import { HeadFC, PageProps } from "gatsby"
+import Button from "../ui/components/Button"
+import { PageStyles, MainText, HeadingStyles, ParagraphStyles, Image, StyledLink } from "../styles/404.styles"
 import rocketTeam from "../images/rocketTeam.png"
 
 const NotFoundPage: React.FC<PageProps> = () => {
@@ -13,7 +14,9 @@ const NotFoundPage: React.FC<PageProps> = () => {
       <ParagraphStyles>
         Page Not Found
       </ParagraphStyles>
-      <Link to="/">Go to main page</Link>
+      <Button isVisible={true} name="Go to main page">
+        <StyledLink to="/">Go to main page</StyledLink>
+      </Button>
     </PageStyles>
   )
 }

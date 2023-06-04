@@ -3,7 +3,7 @@ import { Button } from "./Button.styles";
 
 interface Props {
   children?: JSX.Element;
-  onClick: VoidFunction;
+  onClick?: VoidFunction;
   isVisible?: boolean;
   name: string;
   type?: "button" | "submit" | "reset" | undefined
