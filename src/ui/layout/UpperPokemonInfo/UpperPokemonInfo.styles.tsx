@@ -51,6 +51,12 @@ export const Image = styled.img`
   height: 200px;
   width: 200px;
   z-index: 10;
+
+  @media only screen and (min-width: 600px) {
+    margin: 0 auto -100px auto;
+    height: 300px;
+    width: 300px;
+  }
 `
 
 export const ButtonsWrapper = styled.div`

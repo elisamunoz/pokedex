@@ -10,6 +10,11 @@ export const  ContentWrapper= styled.div`
   margin: 8px;
   padding: 56px 20px 20px;
   min-height: 400px;
+
+  @media only screen and (min-width: 600px) {
+    margin: 8px auto;
+    max-width: 500px;
+  }
 `;
 
 export const MeasureWrapper = styled.div`

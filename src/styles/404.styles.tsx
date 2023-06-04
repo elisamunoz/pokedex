@@ -18,13 +18,26 @@ export const MainText = styled.div`
 
 export const HeadingStyles = styled.h1`
   margin: 0;
-  max-width: 320;
   font-size: 200px;
+
+  @media only screen and (min-width: 600px) {
+    font-size: 350px;
+    margin-bottom: 100px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    font-size: 404px;
+    margin-bottom: 0;
+  }
 `
 
 export const ParagraphStyles = styled.p`
   margin: 20px 0;
   font-size: 35px;
+
+  @media only screen and (min-width: 600px) {
+    margin: 20px 0;
+  }
 `
 
 export const Image = styled.img`
@@ -33,6 +46,13 @@ export const Image = styled.img`
   bottom: -33px;
   right: 50%;
   transform: translate(50%);
+
+  @media only screen and (min-width: 992px) {
+    bottom: -10px;
+    right: 50%;
+    transform: translate(52%);
+    width: 335px;
+  }
 `
 
 export const StyledLink = styled(Link)`

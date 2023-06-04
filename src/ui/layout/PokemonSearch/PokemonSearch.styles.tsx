@@ -31,6 +31,13 @@ export const Header = styled.header`
   font-weight: 700;
   color: #fff;
   padding: 16px;
+
+  @media only screen and (min-width: 992px) {
+    margin: auto;
+    width: 100%;
+    padding: 16px 0;
+    max-width: 1000px;
+  }
 `
 
 export const UpperContent = styled.div`
@@ -45,6 +52,7 @@ export const Title = styled.div`
 export const SearchBarWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  max-width: 400px;
   margin-top: 12px;
 `
 export const SearchBar = styled.div`
@@ -73,6 +81,7 @@ export const SvgSearch = styled(Svg)`
 
 export const SvgReset = styled(Svg)`
   right: 5px;
+  cursor: pointer;
   
 `
 const SortBtn = styled.div`

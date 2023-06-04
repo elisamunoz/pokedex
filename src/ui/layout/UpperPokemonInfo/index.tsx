@@ -46,14 +46,14 @@ export const UpperPokemonInfoSection = ({
           </Text>
         </TextWrapper>
         <Image src={imageUrl} alt={`${name} image`}/>
-          <ButtonsWrapper>
+        <ButtonsWrapper>
           <TransparentButton name="previous Pokemon" onClick={onClickPreviousButton}>
             <SvgIcon icon={arrowPreviousIcon} size={20}/>
           </TransparentButton>
           <TransparentButton name="next Pokemon" onClick={onClickNextButton}>
             <SvgIcon icon={arrowNextIcon} size={20} />
           </TransparentButton>
-          </ButtonsWrapper>
+        </ButtonsWrapper>
       </ContentWrapper>
     
     </Section>

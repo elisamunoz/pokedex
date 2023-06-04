@@ -7,4 +7,10 @@ export const Body = styled.div`
   margin: 8px;
   padding: 0;
   flex-grow: 1;
+  max-width: 1000px;
+  
+  @media only screen and (min-width: 992px) {
+    margin: 8px auto;
+    width: 100%;
+  }
 `

@@ -14,6 +14,7 @@ export const Button = styled.button<ButtonTypes>`
   padding: 0;
   box-shadow: none;
   margin: 0;
+  cursor: pointer;
 
   ${({ isVisible = false}) => {
     if(isVisible) {
