@@ -22,7 +22,6 @@ export const useFetchPokemonDetails = () => {
   const pokemonList = useAppSelector(getPokemons);   
 
   return async(pokNumber: number = 0) => {
-    // if()
     const pokemonDetails = await getPokemonDetails(pokNumber, pokemonList)
 
     dispatch(addPokemonDetails(pokemonDetails))
