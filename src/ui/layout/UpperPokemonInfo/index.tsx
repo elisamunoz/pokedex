@@ -5,6 +5,7 @@ import SvgIcon from "../../components/Svg";
 import { addZerosToStart } from "../../../functions/utils"
 import { arrowBackIcon, pokeBall, arrowPreviousIcon, arrowNextIcon } from "../../../images/svgPaths"
 import { ContentWrapper, PokeballWrapper, TextWrapper, Text, Title, Number, Image, ButtonsWrapper } from "./UpperPokemonInfo.styles"
+import pokemonPlaceholder from "../../../images/pokemonPlaceholder.svg"
 
 interface Props {
   name: string;
@@ -18,7 +19,7 @@ interface Props {
 export const UpperPokemonInfoSection = ({
   name,
   number,
-  imageUrl,
+  imageUrl = pokemonPlaceholder,
   onClickBackButton,
   onClickNextButton,
   onClickPreviousButton
