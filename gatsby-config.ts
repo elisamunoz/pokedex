@@ -3,6 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const path = require('path');
 
 const config: GatsbyConfig = {
+  pathPrefix: `/pokedex`,
   siteMetadata: {
     title: `pokedex`,
     siteUrl: `https://www.yourdomain.tld`
