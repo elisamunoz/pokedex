@@ -3,6 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const path = require('path');
 
 const config: GatsbyConfig = {
+  pathPrefix: `/pokedex`,
   siteMetadata: {
     title: `pokedex`,
     siteUrl: `https://www.yourdomain.tld`
@@ -24,11 +25,27 @@ const config: GatsbyConfig = {
       __key: "images"
     },
     {
-      resolve: `gatsby-plugin-layout`,
+      resolve: `gatsby-plugin-react-redux`,
       options: {
-        component: path.resolve(__dirname, 'src/ui/layout'),
+        // [required] - path to your createStore module
+        pathToCreateStoreModule: './src/state/store',
+        // [optional] - options passed to `serialize-javascript`
+        // info: https://github.com/yahoo/serialize-javascript#options
+        // will be merged with these defaults:
+        serialize: {
+          space: 0,
+          // if `isJSON` is set to `false`, `eval` is used to deserialize redux state,
+          // otherwise `JSON.parse` is used
+          isJSON: true,
+          unsafe: false,
+          ignoreFunction: true,
+        },
+        // [optional] - if true will clean up after itself on the client, default:
+        cleanupOnClient: true,
+        // [optional] - name of key on `window` where serialized state will be stored, default:
+        windowKey: '__PRELOADED_STATE__',
       },
-    }
+    },
   ]
 };
 
