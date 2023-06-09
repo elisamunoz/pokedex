@@ -63,7 +63,7 @@ export const SearchBar = styled.div`
 `
 
 export const SearchInput = styled.input`
-  height: 25px;
+  height: 30px;
   border-radius: 16px;
   border: none;
   box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
@@ -72,7 +72,7 @@ export const SearchInput = styled.input`
 `
 const Svg = styled(SvgIcon)`
   position: absolute;
-  top: 4px;
+  top: 6px;
 `
 
 export const SvgSearch = styled(Svg)`
@@ -88,13 +88,13 @@ const SortBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
   background: #fff;
   box-sizing: border-box;
-  padding: 3px;
+  padding: 5px;
 `
 
 export const SortByType = styled(SortBtn)`

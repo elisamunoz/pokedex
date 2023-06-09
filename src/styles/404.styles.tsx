@@ -40,7 +40,7 @@ export const ParagraphStyles = styled.p`
   }
 `
 
-export const Image = styled.img`
+export const ImageContainer = styled.img`
   position: absolute;
   max-width: -webkit-fill-available;
   bottom: -33px;
