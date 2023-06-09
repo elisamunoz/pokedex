@@ -30,7 +30,10 @@ export const BaseStatsSection = ({
   }
 
   const filteredPokemons: PokemonType[] = pokemonList
-    .filter((pokemon: PokemonType) => pokemon.name.includes(query))
+    .filter((pokemon: PokemonType) => pokemon.name
+      .toLowerCase()
+      .includes(query.toLowerCase())
+  )
   
   const handleOnClickSortBy = () => setIsOrderByNumber(!isOrderByNumber)
   const handleOnClickSort = () => setIsAscendent(!isAscendent)
