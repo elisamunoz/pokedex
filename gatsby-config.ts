@@ -8,7 +8,6 @@ const config: GatsbyConfig = {
     title: `pokedex`,
     description: `Example project for the Gatsby Head API`,
     siteUrl: `https://elisamunoz.github.io/pokedex/`,
-    theme_color: '#dc0a2d',
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

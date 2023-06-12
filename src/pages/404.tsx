@@ -1,16 +1,23 @@
 import * as React from "react"
-import { HeadFC, PageProps } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { HeadFC } from "gatsby"
+import { Helmet } from 'react-helmet';
 import Button from "../ui/components/Button"
 import { PageStyles, MainText, HeadingStyles, ParagraphStyles, ImageContainer, StyledLink } from "../styles/404.styles";
 import rocketTeamImg from "../images/rocketTeam.png" 
 
+interface Props {
+  image?: string;
+}
 
-const NotFoundPage: React.FC<PageProps> = ({
+const NotFoundPage: React.FC<Props> = ({
   image = rocketTeamImg
 }) => {
   return (
-    <PageStyles>
+    <>
+      <Helmet>
+        <title>404</title>
+      </Helmet>
+      <PageStyles>
       <MainText>
       <ImageContainer src={image} alt="Rocket Team Image" />
       <HeadingStyles>404</HeadingStyles>
@@ -22,6 +29,7 @@ const NotFoundPage: React.FC<PageProps> = ({
         <StyledLink to="/">Go to main page</StyledLink>
       </Button>
     </PageStyles>
+    </>
   )
 }
 

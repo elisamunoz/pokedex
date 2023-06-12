@@ -1,10 +1,13 @@
 import React from "react";
 import type { PropsWithChildren } from 'react';
 import { Helmet } from 'react-helmet';
-import useSiteMetadata from '../../hooks/useSitemMetadata';
+import pokeball from "../../images/pokeball.ico"
 
 export const Layout = ({ children }: PropsWithChildren) => {
-  const { title, description, theme_color } = useSiteMetadata();
+  // const { title, description, theme_color } = useSiteMetadata();
+  const title = "Eli's Pokedex";
+  const description = 'This is my Pokedex';
+  const theme_color = '#dc0a2d';
 
   return (
     <>
@@ -22,14 +25,14 @@ export const Layout = ({ children }: PropsWithChildren) => {
         <meta content="yes" name="apple-mobile-web-app-capable" />
         <meta content={theme_color} name="apple-mobile-web-app-status-bar-style" />
         <meta content={theme_color} name="apple-mobile-web-app-title" />
-        {/* <link rel="apple-touch-icon" href="./icons/launcher/icon-152x152.png" sizes="152x152" /> */}
+        {/* <link rel="apple-touch-icon" href={"./icons/launcher/icon-152x152.png"} sizes="152x152" /> */}
 
         {/* Tile Icon for Windows */}
         <meta content="no" name="msapplication-tap-highlight" />
         {/* <meta content="./icons/launcher/icon-144x144.png" name="msapplication-TileImage" /> */}
         <meta content={theme_color} name="msapplication-TileColor" />
 
-        {/* <link rel="icon" href="./icons/favicon.png" type="image/png" /> */}
+        <link rel="icon" href={pokeball} type="image/png" />
       </Helmet>
       {children}
     </>

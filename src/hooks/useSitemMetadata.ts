@@ -1,4 +1,4 @@
-import {graphql, useStaticQuery} from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const useSiteMetadata = () => {
   const data = useStaticQuery(graphql`
@@ -7,7 +7,6 @@ const useSiteMetadata = () => {
         siteMetadata {
           title
           description
-          theme_color
         }
       }
     }
