@@ -43,7 +43,8 @@ const IndexPage: React.FC<PageProps> = () => {
   }
 
   const isLoading = pokemonList.length === 0;
-
+  const isPokemonLoading = selectedPokemonDetails.description === undefined
+  
   return isLoading ? <LoadingPage /> : (
     <StyledBody type={mainType}>
       {!isPokemonCardVisible && 
@@ -61,14 +62,16 @@ const IndexPage: React.FC<PageProps> = () => {
             number={selectedPokemonDetails.number}
             imageUrl={selectedPokemonDetails.imageUrl}
           />
+         
           <LowerPokemonInfo 
-            types={selectedPokemonDetails.type}
-            statsValue={selectedPokemonDetails.stats}
-            weight={selectedPokemonDetails.weight} 
-            height={selectedPokemonDetails.height}
-            moves={selectedPokemonDetails.moves}
-            description={selectedPokemonDetails.description}
-          />
+              types={selectedPokemonDetails.type}
+              statsValue={selectedPokemonDetails.stats}
+              weight={selectedPokemonDetails.weight} 
+              height={selectedPokemonDetails.height}
+              moves={selectedPokemonDetails.moves}
+              description={selectedPokemonDetails.description}
+              isPokemonLoading={isPokemonLoading}
+            />
         </PokemonCard> 
       }
     </StyledBody>

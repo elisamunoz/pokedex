@@ -8,20 +8,3 @@ export const LoadingPage = styled.div`
   justify-content: center;
   background: ${colors.white};
 `;
-
-export const Image = styled.img`
-  height: 100px;
-  width: 100px;
-  align-self: center;
-  animation: rotation 8s infinite linear;
-
-  @keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-`
-

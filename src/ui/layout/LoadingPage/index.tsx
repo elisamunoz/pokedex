@@ -1,6 +1,6 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image"
-import { LoadingPage, Image } from "./LoadingPage.styles"
+import { LoadingPage } from "./LoadingPage.styles"
+import Loading from "../../components/Loading";
 import pokeball from "../../../images/pokeball.svg"
 
 interface Props {
@@ -13,7 +13,7 @@ export const LoadingPageSection = ({
   
   return (
     <LoadingPage>
-      <Image src={imageSvg} alt="pokeball" />
+      <Loading src={imageSvg} alt="pokeball"/>
     </LoadingPage>
   )
 };
