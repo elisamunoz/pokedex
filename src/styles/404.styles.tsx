@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import { Link } from "gatsby"
+import { colors } from './constants';
 
 export const PageStyles = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  color: #571a17;
+  color: ${colors.secondaryColor};
   font-family: -apple-system, Roboto, sans-serif, serif;
-  background: #DC0A2D;
+  background: ${colors.primaryColor};
   text-align: center;
 `
 
@@ -57,5 +58,5 @@ export const ImageContainer = styled.img`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #571a17;
+  color: ${colors.secondaryColor};
 `

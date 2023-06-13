@@ -10,6 +10,7 @@ import { PokemonType } from "../../../types/pokemon";
 import { addZerosToStart, sortPokemonsOrder } from '../../../functions/utils'
 import { getPokemons } from "../../../state/selectors/pokemons.selectors";
 import { closeIcon, orderIcon, searchIcon, hashTagIcon, letterIcon } from "../../../images/svgPaths"
+import { colors } from "../../../styles/constants";
 
 
 interface Props {
@@ -45,7 +46,7 @@ export const BaseStatsSection = ({
     <PokemonSearchWrapper>
       <Header>
         <UpperContent>
-          <SvgIcon icon={pokeBall} color="#fff" />
+          <SvgIcon icon={pokeBall} color={colors.white} />
           <Title>Pokédex</Title>
         </UpperContent>
         <SearchBarWrapper>
@@ -56,18 +57,18 @@ export const BaseStatsSection = ({
               placeholder="Enter a Pokemon name"
               onChange={handleOnChange}
             />
-            <SvgSearch icon={searchIcon} size={16} color="#666666" />
-            <SvgReset icon={closeIcon} size={16} color="#666666" onClick={handleOnClearClick}/>
+            <SvgSearch icon={searchIcon} size={16} color={colors.secondaryFontColor} />
+            <SvgReset icon={closeIcon} size={16} color={colors.secondaryFontColor} onClick={handleOnClearClick}/>
             
           </SearchBar>
           <Button onClick={handleOnClickSortBy} name="order by">
             <SortByType>
-              <SvgIcon icon={!isOrderByNumber ? letterIcon : hashTagIcon} color="#DC0A2D" />
+              <SvgIcon icon={!isOrderByNumber ? letterIcon : hashTagIcon} color={colors.primaryColor} />
             </SortByType>
           </Button>
           <Button onClick={handleOnClickSort} name="ascendent descendent">
             <SortButton isAscendent={isAscendent}>
-              <SvgIcon icon={orderIcon} color="#DC0A2D" />
+              <SvgIcon icon={orderIcon} color={colors.primaryColor} />
             </SortButton>
           </Button>
         </SearchBarWrapper>     

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import SvgIcon from '../../components/Svg';
+import { colors } from '../../../styles/constants';
 
 interface PokemonsOrder {
   isAscendent?: boolean;
@@ -10,7 +11,7 @@ export const PokemonSearchWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  background: #DC0A2D;
+  background: ${colors.primaryColor};
 `;
 
 export const ThumbnailsWrapper = styled.div`
@@ -29,7 +30,7 @@ export const Header = styled.header`
   flex-direction: column;
   font-size: 24px;
   font-weight: 700;
-  color: #fff;
+  color: ${colors.white};
   padding: 16px;
 
   @media only screen and (min-width: 992px) {
@@ -66,7 +67,7 @@ export const SearchInput = styled.input`
   height: 30px;
   border-radius: 16px;
   border: none;
-  box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 3px 1px ${colors.inputBoxShadow};
   padding: 0px 25px;
   width: 100%;
 `
@@ -91,8 +92,8 @@ const SortBtn = styled.div`
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.2);
-  background: #fff;
+  box-shadow: 0px 1px 3px 1px ${colors.inputBoxShadow};
+  background: ${colors.white};
   box-sizing: border-box;
   padding: 5px;
 `

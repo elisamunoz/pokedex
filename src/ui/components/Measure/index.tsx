@@ -3,6 +3,7 @@ import { CONTENT_TYPES } from "../../layout/About";
 import SvgIcon from "../Svg";
 import { weightIcon, heightIcon  } from "../../../images/svgPaths"
 import { Wrapper, UpperContent, Content, ContentType, MovesWrapper } from "./Measure.styles";
+import { colors } from "../../../styles/constants";
 
 interface Props {
   content?: number | string[];
@@ -37,7 +38,7 @@ return (
         {contentType !== CONTENT_TYPES.MOVES &&
           <SvgIcon 
             size= {30} 
-            color="#1D1D1D" 
+            color={colors.primaryFontColor}
             icon={svgIcon}
           />
         }

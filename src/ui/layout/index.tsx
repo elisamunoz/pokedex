@@ -2,12 +2,12 @@ import React from "react";
 import type { PropsWithChildren } from 'react';
 import { Helmet } from 'react-helmet';
 import pokeball from "../../images/pokeball.ico"
+import { colors } from "../../styles/constants";
 
 export const Layout = ({ children }: PropsWithChildren) => {
-  // const { title, description, theme_color } = useSiteMetadata();
   const title = "Eli's Pokedex";
   const description = 'This is my Pokedex';
-  const theme_color = '#dc0a2d';
+  const theme_color = colors.primaryColor;
 
   return (
     <>

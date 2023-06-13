@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../../styles/constants';
 
 export const ThumbnailWrapper = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const ThumbnailWrapper = styled.div`
   font-weight: 700;
   margin: 3px 0;
   overflow: hidden;
-  color: #1D1D1D;
+  color: ${colors.primaryFontColor};
   cursor: pointer;
 
   @media only screen and (min-width: 600px) {
@@ -54,7 +55,6 @@ export const Image = styled.img`
 
 export const Background = styled.div`
   position: absolute;
-  /* background: #f3f2f2; */
   border-radius: 7px;
   height: 40%;
   bottom: 0;

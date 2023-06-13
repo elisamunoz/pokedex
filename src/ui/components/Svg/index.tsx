@@ -1,5 +1,5 @@
 import React from "react";
-// import { ICON_TYPES } from "../../../types/pokemon"
+import { colors } from "../../../styles/constants";
 
 interface Props {
   size?: number | string,
@@ -7,12 +7,11 @@ interface Props {
   icon: {path: string, viewBox: string},
   onClick?: VoidFunction;
   className?: string
-  // path: ICON_TYPES,
 }
 
 export const SvgIconComponent = ({
   size = 48,
-  color = "#fff",
+  color = colors.white,
   icon,
   className,
   onClick

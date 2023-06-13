@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../../styles/constants';
 
 export const ContentWrapper = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const TextWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 0;
-  color: #FFFFFF;
+  color: ${colors.white};
   font-size: 30px;
 `
 

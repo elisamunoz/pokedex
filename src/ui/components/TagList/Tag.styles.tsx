@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { POKEMON_TYPES, POKEMON_TYPE_COLORS } from '../../../constants';
+import { colors } from '../../../styles/constants';
 
 interface TagProps {
   type?: POKEMON_TYPES;
@@ -35,5 +36,5 @@ export const Text = styled.h4`
   text-transform: capitalize;
   font-weight: 700;
   line-height: 16px;
-  color: #FFFFFF;
+  color: ${colors.white};
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { POKEMON_TYPES, POKEMON_TYPE_COLORS } from '../constants';
+import { colors } from './constants';
 
 interface Props {
   type?: POKEMON_TYPES;
@@ -8,7 +9,7 @@ interface Props {
 export const StyledBody = styled.main<Props>`
   display: flex;
   flex-direction: column;
-  color: #1D1D1D;
+  color: ${colors.primaryFontColor};
   font-family: 'Poppins', sans-serif;
   background: currentColor;
   min-height: 100vh;

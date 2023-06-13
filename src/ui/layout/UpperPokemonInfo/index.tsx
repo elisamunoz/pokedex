@@ -6,6 +6,7 @@ import { addZerosToStart } from "../../../functions/utils"
 import { arrowBackIcon, pokeBall, arrowPreviousIcon, arrowNextIcon } from "../../../images/svgPaths"
 import { ContentWrapper, PokeballWrapper, TextWrapper, Text, Title, Number, Image, ButtonsWrapper } from "./UpperPokemonInfo.styles"
 import pokemonPlaceholder from "../../../images/pokemonPlaceholder.svg"
+import { colors } from "../../../styles/constants";
 
 interface Props {
   name: string;
@@ -30,7 +31,7 @@ export const UpperPokemonInfoSection = ({
     <Section>
       <ContentWrapper>
         <PokeballWrapper>
-          <SvgIcon color="color-mix(in oklab, currentColor, #f2f2f2)" size="100%" icon={pokeBall} />
+          <SvgIcon color={`color-mix(in oklab, currentColor, ${colors.offWhite})`} size="100%" icon={pokeBall} />
         </PokeballWrapper>       
         <TextWrapper>
           <TransparentButton name="back to main page" onClick={onClickBackButton}>

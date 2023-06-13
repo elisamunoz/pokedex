@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../../styles/constants';
 
 interface StatType {
   value?: number | string;
@@ -18,8 +19,8 @@ export const StatBar = styled.progress<StatType>`
 
   &::-webkit-progress-bar {
     border-radius: 10px;
-    background: #f2f2f2;
-    background: color-mix(in oklab, currentColor, #f2f2f2);
+    background: ${colors.offWhite};
+    background: color-mix(in oklab, currentColor, ${colors.offWhite});
   }
 
   &::-webkit-progress-value {

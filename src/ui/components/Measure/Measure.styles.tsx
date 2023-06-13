@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../../styles/constants';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -6,8 +7,8 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   text-transform: capitalize;
   flex-grow: 1;
-  border-right: 1px solid #E0E0E0;
-  color: #1D1D1D;
+  border-right: 1px solid ${colors.borderColor};
+  color: ${colors.primaryFontColor};
 
   &:last-child {
     border-right: none;
@@ -26,15 +27,15 @@ export const MovesWrapper = styled.div`
 `
 
 export const Content = styled.h6`
-align-self: center;
-font-size: 1em;
-margin: 0 4px;
+  align-self: center;
+  font-size: 1em;
+  margin: 0 4px;
 `
 
 export const ContentType = styled.h5`
-display: flex;
-justify-content: center;
-margin: 0;
-font-size: 0.8em;
-color: #666666;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  font-size: 0.8em;
+  color: ${colors.secondaryFontColor};
 `
