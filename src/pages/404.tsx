@@ -20,7 +20,7 @@ const NotFoundPage: React.FC<Props> = ({
     <ParagraphStyles>
       Page Not Found
     </ParagraphStyles>
-    <Button isVisible={true} name="Go to main page">
+    <Button isVisible={true} title="Go to main page">
       <StyledLink to="/">Go to main page</StyledLink>
     </Button>
   </PageStyles>

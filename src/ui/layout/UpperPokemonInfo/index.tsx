@@ -34,7 +34,7 @@ export const UpperPokemonInfoSection = ({
           <SvgIcon color={`color-mix(in oklab, currentColor, ${colors.offWhite})`} size="100%" icon={pokeBall} />
         </PokeballWrapper>       
         <TextWrapper>
-          <TransparentButton name="back to main page" onClick={onClickBackButton}>
+          <TransparentButton title="back to main page" onClick={onClickBackButton}>
             <SvgIcon icon={arrowBackIcon} />
           </TransparentButton>
           <Text>
@@ -48,10 +48,10 @@ export const UpperPokemonInfoSection = ({
         </TextWrapper>
         <Image src={imageUrl} alt={`${name} image`}/>
         <ButtonsWrapper>
-          <TransparentButton name="previous Pokemon" onClick={onClickPreviousButton}>
+          <TransparentButton title="previous Pokemon" onClick={onClickPreviousButton}>
             <SvgIcon icon={arrowPreviousIcon} size={20}/>
           </TransparentButton>
-          <TransparentButton name="next Pokemon" onClick={onClickNextButton}>
+          <TransparentButton title="next Pokemon" onClick={onClickNextButton}>
             <SvgIcon icon={arrowNextIcon} size={20} />
           </TransparentButton>
         </ButtonsWrapper>

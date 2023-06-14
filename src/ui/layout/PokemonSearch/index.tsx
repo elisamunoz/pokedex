@@ -61,12 +61,12 @@ export const BaseStatsSection = ({
             <SvgReset icon={closeIcon} size={16} color={colors.secondaryFontColor} onClick={handleOnClearClick}/>
             
           </SearchBar>
-          <Button onClick={handleOnClickSortBy} name="order by">
+          <Button onClick={handleOnClickSortBy} title="order by name or number">
             <SortByType>
               <SvgIcon icon={!isOrderByNumber ? letterIcon : hashTagIcon} color={colors.primaryColor} />
             </SortByType>
           </Button>
-          <Button onClick={handleOnClickSort} name="ascendent descendent">
+          <Button onClick={handleOnClickSort} title="sort by ascendent or descendent">
             <SortButton isAscendent={isAscendent}>
               <SvgIcon icon={orderIcon} color={colors.primaryColor} />
             </SortButton>

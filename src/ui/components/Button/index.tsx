@@ -5,22 +5,22 @@ interface Props {
   children?: JSX.Element;
   onClick?: VoidFunction;
   isVisible?: boolean;
-  name: string;
-  type?: "button" | "submit" | "reset" | undefined
+  type?: "button" | "submit" | "reset" | undefined;
+  title: string
 }
 
 export const ButtonComponent = ({
   children,
   onClick,
   isVisible = false,
-  name,
-  type = "button"
+  type = "button",
+  title
 }: Props) =>(
     <Button 
       onClick={onClick}
       isVisible={isVisible}
-      name={name}
       type={type}
+      title={title}
     >
       {children}
     </Button>
