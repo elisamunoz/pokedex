@@ -1,49 +1,33 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# Elisa's Pokedex
 
-## 🚀 Quick start
+This app gets information about the first Pokemon generation. It shows the 150 Pokemon in a list where you can choose any of them and see the Pokemon chosen in detail.
+This information is obtained from a public API:
 
-1.  **Create a Gatsby site.**
+- [Poké API](https://pokeapi.co/): This API contains all the Pokemon information, including stats, description, image, name, etc.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+## Design
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+When I was a child I used to watch Pokemon cartoons, then a couple of weeks ago I was surfing the web and I came across this [Pokédex Prototype](https://www.figma.com/file/FrM5KLtKlSHa2jvDDGWwQt/Pok%C3%A9dex-(Community)?type=design&node-id=0-1&t=wnzzJKixklDKrOPl-0) in Figma, which is based on the [Poké API](https://pokeapi.co/) and I thought it was going to be a lot of fun to create my own Pokédex and it was indeed!
+Now I am happy and proud to show it to you.
 
-2.  **Start developing.**
+## What I used working in this project?
 
-    Navigate into your new site’s directory and start it up.
+- [Fetch API](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch): I was certainly not new to the Fetch API, but it was a great way to use it again and practice to get the Pokemon from the API.
+- [Redux](https://redux.js.org/): I knew this library existed and I thought this project was going to be a great opportunity to learn it because I was finding it too confusing to pass the information from parent to children to children and so on.
+- [React](https://es.react.dev/) with [Gatsby](https://www.gatsbyjs.com/guides/react/): I decided to use React Gatsby when I found out that `create-react-app` was [no longer recommended](https://github.com/reactjs/react.dev/pull/5487) by the React team.
+- [Typescript](https://www.typescriptlang.org/) to help me reduce involuntary errors.
+- [Styled Components](https://styled-components.com/) for the styles.
+- [Figma](https://www.figma.com/): where I got the design from.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
 
-3.  **Open the code and start customizing!**
+The live demo is [here.](https://elisamunoz.github.io/pokedex/)
 
-    Your site is now running at http://localhost:8000!
+### To run it locally
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+Clone the repository
 
-4.  **Learn more**
+- `npm install` to install the dependencies
+- `npm start` to run the project
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+Runs the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
