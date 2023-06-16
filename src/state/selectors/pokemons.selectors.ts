@@ -16,3 +16,6 @@ export const getPokemonsDetailsByNumber = (state: RootState, pkNumber: number): 
 
 export const getPokemonSpecies = (state: RootState): any[] =>
   state.pokemons.species || [];
+
+export const getTotalPokemons = (state: RootState): number =>
+  getPokemons(state).length
