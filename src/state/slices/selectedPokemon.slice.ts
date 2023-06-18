@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type pokemonOrder = number
 
-const initialState: pokemonOrder = 1;
+const initialState: pokemonOrder = 0;
 
 export const pokemonsSlice = createSlice({
   name: 'selectedPokemon',
