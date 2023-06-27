@@ -21,8 +21,17 @@ export const ThumbnailsWrapper = styled.div`
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: center;
   height: 100%;
+  gap: 0.3em;
+
+  @media only screen and (min-width: 600px) {
+    gap: 0.6em;
+  }
+
+  @media only screen and (min-width: 768px) {
+    gap: 0.8em;
+  }
 `
 
 export const Header = styled.header`

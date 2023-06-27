@@ -12,19 +12,16 @@ export const ThumbnailWrapper = styled.div`
   padding: 3px;
   font-size: 13px;
   font-weight: 700;
-  margin: 3px 0;
   overflow: hidden;
   color: ${colors.primaryFontColor};
   cursor: pointer;
 
   @media only screen and (min-width: 600px) {
     width: 23%;
-    margin: 6px 0;
   }
 
   @media only screen and (min-width: 768px) {
     width: 18%;
-    margin: 8px 0;
   }
 `
 
